@@ -1,10 +1,19 @@
 package com.zcj.findpet.core;
 
+import com.joanzapata.iconify.IconFontDescriptor;
+import com.joanzapata.iconify.Iconify;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.WeakHashMap;
 
+/**
+ * Created by zcj on 2018/4/6 2:37
+ */
 public class Configurator {
 
     private static final WeakHashMap<String, Object> AWESOME_CONFIGS = new WeakHashMap<>();
+    private static final List<IconFontDescriptor> ICONS = new ArrayList<>();
 
     private Configurator() {
         AWESOME_CONFIGS.put(ConfigType.CONFIG_READY.name(), false);
@@ -23,11 +32,26 @@ public class Configurator {
     }
 
     public final void configured() {
+        initIcons();
         AWESOME_CONFIGS.put(ConfigType.CONFIG_READY.name(), true);
     }
 
     public final Configurator withApiHost(String host) {
         AWESOME_CONFIGS.put(ConfigType.API_HOST.name(), host);
+        return this;
+    }
+
+    private void initIcons(){
+        if (ICONS.size() > 0){
+            final Iconify.IconifyInitializer initializer = Iconify.with(ICONS.get(0));
+            for (int i = 1; i < ICONS.size(); i++){
+                initializer.with(ICONS.get(i));
+            }
+        }
+    }
+
+    public final Configurator withIcon(IconFontDescriptor descriptor){
+        ICONS.add(descriptor);
         return this;
     }
 

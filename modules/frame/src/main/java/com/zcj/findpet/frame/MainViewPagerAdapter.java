@@ -13,7 +13,6 @@ import java.util.List;
 /**
  * Created by cj_zu on 2018/4/5.
  */
-
 public class MainViewPagerAdapter extends FragmentPagerAdapter {
 
     private List<BaseFragment> fragments = new ArrayList<>();

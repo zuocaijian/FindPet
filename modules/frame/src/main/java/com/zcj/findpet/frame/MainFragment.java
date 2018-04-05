@@ -10,7 +10,6 @@ import com.zcj.findpet.core.base.BaseFragment;
 /**
  * Created by cj_zu on 2018/4/5.
  */
-
 public class MainFragment extends BaseFragment {
     public static final String ARG_POSITION = "arg_position";
 

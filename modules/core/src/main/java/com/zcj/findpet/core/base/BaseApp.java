@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.support.multidex.MultiDex;
 
+import com.joanzapata.iconify.fonts.FontAwesomeModule;
 import com.zcj.findpet.core.Awesome;
 
 /**
@@ -21,6 +22,7 @@ public class BaseApp extends Application {
     public void onCreate() {
         super.onCreate();
         Awesome.init(this)
+                .withIcon(new FontAwesomeModule())
                 .withApiHost("http://127.0.0.1/")
                 .configured();
     }

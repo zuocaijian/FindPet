@@ -15,7 +15,6 @@ import java.util.List;
 /**
  * Created by cj_zu on 2018/4/5.
  */
-
 public class MainActivity extends BaseActivity {
 
     AHBottomNavigationViewPager mMainViewPager;
