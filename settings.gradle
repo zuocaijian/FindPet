@@ -1,5 +1,9 @@
 include ':app'
 
+//公共库
+include ':ui'
+project(':ui').projectDir = new File("common/ui")
+
 //独立组件
 include ':core', ':frame'
 project(':frame').projectDir = new File("modules/frame")

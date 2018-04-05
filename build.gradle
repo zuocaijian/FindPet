@@ -4,6 +4,9 @@ ext {
     //app 版本号
     appVersionCode = 1
     appVersionName = "0.1.0"
+    //公共ui库 版本号
+    uiVersionCode = 1
+    uiVersionName = "0.1.0"
 	//core 版本号
 	coreVersionCode = 1
 	coreVersionName = "0.1.0"
