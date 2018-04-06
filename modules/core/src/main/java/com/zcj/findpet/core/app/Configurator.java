@@ -27,7 +27,7 @@ public class Configurator {
         return AWESOME_CONFIGS;
     }
 
-    private static class InstanceHolder {
+    private static final class InstanceHolder {
         public static Configurator sHolder = new Configurator();
     }
 
