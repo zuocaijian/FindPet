@@ -2,7 +2,7 @@ package com.zcj.findpet.frame;
 
 import android.content.Context;
 
-import com.zcj.findpet.core.Awesome;
+import com.zcj.findpet.core.app.Awesome;
 import com.zcj.findpet.core.app.IAppInitTask;
 import com.zcj.findpet.frame.icon.FontFrameModule;
 

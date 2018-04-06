@@ -7,6 +7,9 @@ ext {
     //公共ui库 版本号
     uiVersionCode = 1
     uiVersionName = "0.1.0"
+	//公共网络库 版本号
+	netVersionCode = 1
+	netVersionName = "0.1.0"
 	//core 版本号
 	coreVersionCode = 1
 	coreVersionName = "0.1.0"

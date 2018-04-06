@@ -1,4 +1,4 @@
-package com.zcj.findpet.core;
+package com.zcj.findpet.core.app;
 
 import com.joanzapata.iconify.IconFontDescriptor;
 import com.joanzapata.iconify.Iconify;

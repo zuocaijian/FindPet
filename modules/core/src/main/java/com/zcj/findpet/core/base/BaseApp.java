@@ -5,7 +5,7 @@ import android.content.Context;
 import android.support.multidex.MultiDex;
 
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
-import com.zcj.findpet.core.Awesome;
+import com.zcj.findpet.core.app.Awesome;
 
 /**
  * Created by cj_zu on 2018/4/3.

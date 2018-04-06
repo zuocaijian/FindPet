@@ -1,4 +1,4 @@
-package com.zcj.findpet.core;
+package com.zcj.findpet.core.app;
 
 import android.content.Context;
 
