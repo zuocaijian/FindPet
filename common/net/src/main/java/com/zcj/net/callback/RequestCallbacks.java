@@ -20,7 +20,7 @@ public class RequestCallbacks implements Callback<String> {
     private final LoaderStyle LOADER_STYLE;
     // TODO: 2018/4/6 测试用，延迟关闭LoadingView
     private static final Handler HANDLER = new Handler();
-    private static final int DELAY_TIME = 20000;
+    private static final int DELAY_TIME = 2000;
 
     public RequestCallbacks(IRequest request,
                             ISuccess success,

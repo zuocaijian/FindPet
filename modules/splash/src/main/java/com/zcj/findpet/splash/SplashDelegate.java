@@ -28,7 +28,7 @@ public class SplashDelegate extends AwesomeDelegate {
 
     private void testRestClient() {
         RestClient.builder()
-                .url("https://www.baidu.com")
+                .url("http://127.0.0.1/index")
                 //.params("", "")
                 .loader(getContext())
                 .success(new ISuccess() {

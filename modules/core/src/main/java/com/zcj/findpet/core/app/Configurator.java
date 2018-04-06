@@ -2,6 +2,7 @@ package com.zcj.findpet.core.app;
 
 import com.joanzapata.iconify.IconFontDescriptor;
 import com.joanzapata.iconify.Iconify;
+import com.zcj.net.Interceptors.BaseInterceptor;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,18 +13,19 @@ import java.util.List;
  */
 public class Configurator {
 
-    private static final HashMap<String, Object> AWESOME_CONFIGS = new HashMap<>();
+    private static final HashMap<Object, Object> AWESOME_CONFIGS = new HashMap<>();
     private static final List<IconFontDescriptor> ICONS = new ArrayList<>();
+    private static final List<BaseInterceptor> INTERCEPTORS = new ArrayList<>();
 
     private Configurator() {
-        AWESOME_CONFIGS.put(ConfigType.CONFIG_READY.name(), false);
+        AWESOME_CONFIGS.put(ConfigKeys.CONFIG_READY, false);
     }
 
     public static Configurator getInstance() {
         return InstanceHolder.sHolder;
     }
 
-    final HashMap<String, Object> getAwesomeConfigs() {
+    final HashMap<Object, Object> getAwesomeConfigs() {
         return AWESOME_CONFIGS;
     }
 
@@ -33,11 +35,23 @@ public class Configurator {
 
     public final void configured() {
         initIcons();
-        AWESOME_CONFIGS.put(ConfigType.CONFIG_READY.name(), true);
+        AWESOME_CONFIGS.put(ConfigKeys.CONFIG_READY, true);
     }
 
     public final Configurator withApiHost(String host) {
-        AWESOME_CONFIGS.put(ConfigType.API_HOST.name(), host);
+        AWESOME_CONFIGS.put(ConfigKeys.API_HOST, host);
+        return this;
+    }
+
+    public final Configurator withInterceptor(BaseInterceptor interceptor) {
+        INTERCEPTORS.add(interceptor);
+        AWESOME_CONFIGS.put(ConfigKeys.INTERCEPTORS, INTERCEPTORS);
+        return this;
+    }
+
+    public final Configurator withInterceptors(List<BaseInterceptor> interceptors) {
+        INTERCEPTORS.addAll(interceptors);
+        AWESOME_CONFIGS.put(ConfigKeys.INTERCEPTORS, INTERCEPTORS);
         return this;
     }
 
@@ -56,15 +70,19 @@ public class Configurator {
     }
 
     public void checkConfiguration() {
-        final boolean isReady = (boolean) AWESOME_CONFIGS.get(ConfigType.CONFIG_READY.name());
+        final boolean isReady = (boolean) AWESOME_CONFIGS.get(ConfigKeys.CONFIG_READY);
         if (!isReady) {
             throw new RuntimeException("Configuration is not ready, call configured");
         }
     }
 
     @SuppressWarnings("unchecked")
-    final <T> T getConfiguration(Enum<ConfigType> key) {
+    final <T> T getConfiguration(Object key) {
         checkConfiguration();
-        return (T) AWESOME_CONFIGS.get(key.name());
+        final Object value = AWESOME_CONFIGS.get(key);
+        if (value == null) {
+            throw new NullPointerException(key.toString() + " IS NULL");
+        }
+        return (T) value;
     }
 }

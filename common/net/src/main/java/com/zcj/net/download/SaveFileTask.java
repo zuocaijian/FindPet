@@ -1,11 +1,11 @@
 package com.zcj.net.download;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.text.TextUtils;
 
+import com.zcj.net.RestCreator;
 import com.zcj.net.callback.IRequest;
 import com.zcj.net.callback.ISuccess;
 import com.zcj.util.file.FileUtils;
@@ -22,12 +22,10 @@ public class SaveFileTask extends AsyncTask<Object, Void, File> {
 
     private static final String DEFAULT_DOWNLOAD_DIR = "down_loads";
 
-    private final Context CONTEXT;
     private final IRequest REQUEST;
     private final ISuccess SUCCESS;
 
-    public SaveFileTask(Context context, IRequest request, ISuccess success) {
-        CONTEXT = context;
+    public SaveFileTask(IRequest request, ISuccess success) {
         REQUEST = request;
         SUCCESS = success;
     }
@@ -71,7 +69,7 @@ public class SaveFileTask extends AsyncTask<Object, Void, File> {
             install.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             install.setAction(Intent.ACTION_VIEW);
             install.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
-            CONTEXT.getApplicationContext().startActivity(install);
+            RestCreator.getApplicationContext().startActivity(install);
         }
     }
 }

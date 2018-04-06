@@ -152,7 +152,7 @@ public class RestClient {
     }
 
     public final void download() {
-        new DownloadHandler(URL, DOWNLOAD_DIR, EXTENSION, NAME, REQUEST, SUCCESS, FAILURE, ERROR, CONTEXT)
+        new DownloadHandler(URL, DOWNLOAD_DIR, EXTENSION, NAME, REQUEST, SUCCESS, FAILURE, ERROR)
                 .handleDownload();
     }
 }

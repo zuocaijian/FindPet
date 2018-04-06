@@ -1,6 +1,5 @@
 package com.zcj.net.download;
 
-import android.content.Context;
 import android.os.AsyncTask;
 
 import com.zcj.net.RestCreator;
@@ -29,7 +28,6 @@ public class DownloadHandler {
     private final ISuccess SUCCESS;
     private final IFailure FAILURE;
     private final IError ERROR;
-    private final Context CONTEXT;
 
     public DownloadHandler(String url,
                            String downloadDir,
@@ -38,8 +36,7 @@ public class DownloadHandler {
                            IRequest request,
                            ISuccess success,
                            IFailure failure,
-                           IError error,
-                           Context context) {
+                           IError error) {
         URL = url;
         DOWNLOAD_DIR = downloadDir;
         EXTENSION = extension;
@@ -48,7 +45,6 @@ public class DownloadHandler {
         SUCCESS = success;
         FAILURE = failure;
         ERROR = error;
-        CONTEXT = context;
     }
 
     public final void handleDownload() {
@@ -61,7 +57,7 @@ public class DownloadHandler {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                         if (response.isSuccessful()) {
-                            final SaveFileTask task = new SaveFileTask(CONTEXT, REQUEST, SUCCESS);
+                            final SaveFileTask task = new SaveFileTask(REQUEST, SUCCESS);
                             task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, DOWNLOAD_DIR,
                                     EXTENSION, NAME, response.body());
 

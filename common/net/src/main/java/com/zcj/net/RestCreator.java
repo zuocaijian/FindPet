@@ -1,8 +1,15 @@
 package com.zcj.net;
 
+import android.content.Context;
+
+import com.zcj.net.Interceptors.BaseInterceptor;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.WeakHashMap;
 import java.util.concurrent.TimeUnit;
 
+import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
@@ -12,23 +19,48 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
  */
 public class RestCreator {
 
+    // TODO: 2018/4/6 base url 应该由外部module传进来
+    private static String sBaseUrl = "http://127.0.0.1/";
+    // TODO: 2018/4/6 拦截器 应该由外部module传进来
+    private static final ArrayList<Interceptor> INTERCEPTORS = new ArrayList<>();
+    private static Context sApplicationContext;
+    private static boolean isReady;
+
+    public static void init(Context context, String baseUrl, List<BaseInterceptor> interceptors) {
+        sApplicationContext = context;
+        sBaseUrl = baseUrl;
+        INTERCEPTORS.clear();
+        INTERCEPTORS.addAll(interceptors);
+        isReady = true;
+    }
+
     public static RestService getRestService() {
+        checkInit();
         return RestServiceHolder.REST_SERVICE;
     }
 
-    public static WeakHashMap<String, Object> getParams(){
+    public static WeakHashMap<String, Object> getParams() {
+        checkInit();
         return ParamsHolder.PARAMS;
     }
 
-    private static final class ParamsHolder{
+    public static Context getApplicationContext() {
+        return sApplicationContext;
+    }
+
+    private static void checkInit() {
+        if (!isReady) {
+            throw new RuntimeException("RestCreator must init before use!");
+        }
+    }
+
+    private static final class ParamsHolder {
         private static final WeakHashMap<String, Object> PARAMS = new WeakHashMap<>();
     }
 
     private static final class RetrofitHolder {
-        // TODO: 2018/4/6 base url 应该由外部module传进来
-        private static final String BASE_URL = "http://127.0.0.1/";
         private static final Retrofit RETROFIT_CLIENT = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(sBaseUrl)
                 .client(OKHttpHolder.OK_HTTP_CLIENT)
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .build();
@@ -36,8 +68,18 @@ public class RestCreator {
 
     private static final class OKHttpHolder {
         private static final int TIME_OUT = 60;
-        private static final OkHttpClient OK_HTTP_CLIENT = new OkHttpClient.Builder()
-                //.addNetworkInterceptor()
+        private static final OkHttpClient.Builder BUILDER = new OkHttpClient.Builder();
+
+        private static OkHttpClient.Builder addInterceptor() {
+            if (INTERCEPTORS != null && !INTERCEPTORS.isEmpty()) {
+                for (Interceptor interceptor : INTERCEPTORS) {
+                    BUILDER.addInterceptor(interceptor);
+                }
+            }
+            return BUILDER;
+        }
+
+        private static final OkHttpClient OK_HTTP_CLIENT = addInterceptor()
                 .connectTimeout(TIME_OUT, TimeUnit.SECONDS)
                 .build();
     }
