@@ -10,6 +10,9 @@ ext {
 	//core 版本号
 	coreVersionCode = 1
 	coreVersionName = "0.1.0"
+	//main 版本号
+	mainVersionCode = 1
+	mainVersionName = "0.1.0"
 	//splash 版本号
 	splashVersionCode = 1
 	splashVersionName = "0.1.0"

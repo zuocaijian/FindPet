@@ -7,7 +7,8 @@ include ':ui'
 project(':ui').projectDir = new File("common/ui")
 
 //独立组件
-include ':core', ':splash', ':frame'
+include ':core', ':main', ':splash', ':frame'
 project(':core').projectDir = new File("modules/core")
+project(':main').projectDir = new File("modules/main")
 project(':splash').projectDir = new File("modules/splash")
 project(':frame').projectDir = new File("modules/frame")
