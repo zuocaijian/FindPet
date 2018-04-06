@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.TextView;
 
+import com.joanzapata.iconify.widget.IconTextView;
 import com.zcj.findpet.core.base.BaseFragment;
 
 
@@ -13,7 +14,8 @@ import com.zcj.findpet.core.base.BaseFragment;
 public class MainFragment extends BaseFragment {
     public static final String ARG_POSITION = "arg_position";
 
-    TextView mTv;
+    private TextView mTv;
+    private IconTextView mITv;
 
     private String mPos;
 
@@ -37,6 +39,7 @@ public class MainFragment extends BaseFragment {
     protected void initView() {
         super.initView();
         mTv = mView.findViewById(R.id.tv);
+        mITv = mView.findViewById(R.id.itv);
     }
 
     @Override
@@ -48,6 +51,7 @@ public class MainFragment extends BaseFragment {
 
         if (!TextUtils.isEmpty(mPos)) {
             mTv.setText(mPos);
+            mITv.setText(getResources().getString(R.string.icon_font, "fa-coffee"));
         }
     }
 }

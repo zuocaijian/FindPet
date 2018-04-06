@@ -4,15 +4,15 @@ import com.joanzapata.iconify.IconFontDescriptor;
 import com.joanzapata.iconify.Iconify;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.WeakHashMap;
 
 /**
  * Created by zcj on 2018/4/6 2:37
  */
 public class Configurator {
 
-    private static final WeakHashMap<String, Object> AWESOME_CONFIGS = new WeakHashMap<>();
+    private static final HashMap<String, Object> AWESOME_CONFIGS = new HashMap<>();
     private static final List<IconFontDescriptor> ICONS = new ArrayList<>();
 
     private Configurator() {
@@ -23,7 +23,7 @@ public class Configurator {
         return InstanceHolder.sHolder;
     }
 
-    final WeakHashMap<String, Object> getAwesomeConfigs() {
+    final HashMap<String, Object> getAwesomeConfigs() {
         return AWESOME_CONFIGS;
     }
 
@@ -41,16 +41,16 @@ public class Configurator {
         return this;
     }
 
-    private void initIcons(){
-        if (ICONS.size() > 0){
+    private void initIcons() {
+        if (ICONS.size() > 0) {
             final Iconify.IconifyInitializer initializer = Iconify.with(ICONS.get(0));
-            for (int i = 1; i < ICONS.size(); i++){
+            for (int i = 1; i < ICONS.size(); i++) {
                 initializer.with(ICONS.get(i));
             }
         }
     }
 
-    public final Configurator withIcon(IconFontDescriptor descriptor){
+    public final Configurator withIcon(IconFontDescriptor descriptor) {
         ICONS.add(descriptor);
         return this;
     }

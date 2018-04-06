@@ -1,3 +1,4 @@
 <resources>
     <string name="test">just for test.</string>
+    <string name="icon_font">{%1$s}</string>
 </resources>

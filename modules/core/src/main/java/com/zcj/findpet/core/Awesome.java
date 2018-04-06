@@ -2,7 +2,7 @@ package com.zcj.findpet.core;
 
 import android.content.Context;
 
-import java.util.WeakHashMap;
+import java.util.HashMap;
 
 /**
  * Created by zcj on 2018/4/6 2:37
@@ -13,7 +13,11 @@ public final class Awesome {
         return Configurator.getInstance();
     }
 
-    private static WeakHashMap<String, Object> getConfigurations() {
+    private static HashMap<String, Object> getConfigurations() {
         return Configurator.getInstance().getAwesomeConfigs();
+    }
+
+    public static Context getApplicationContext(){
+        return (Context) getConfigurations().get(ConfigType.APPLICATION_CONTEXT.name());
     }
 }
