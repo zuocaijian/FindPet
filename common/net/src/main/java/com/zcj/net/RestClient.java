@@ -7,6 +7,7 @@ import com.zcj.net.callback.IFailure;
 import com.zcj.net.callback.IRequest;
 import com.zcj.net.callback.ISuccess;
 import com.zcj.net.callback.RequestCallbacks;
+import com.zcj.net.download.DownloadHandler;
 import com.zcj.ui.LoaderStyle;
 import com.zcj.ui.LoaderView;
 
@@ -26,6 +27,9 @@ import retrofit2.Callback;
 public class RestClient {
     private final String URL;
     private static final WeakHashMap<String, Object> PARAMS = RestCreator.getParams();
+    private final String DOWNLOAD_DIR;
+    private final String EXTENSION;
+    private final String NAME;
     private final IRequest REQUEST;
     private final ISuccess SUCCESS;
     private final IFailure FAILURE;
@@ -37,6 +41,9 @@ public class RestClient {
 
     public RestClient(String url,
                       Map<String, Object> params,
+                      String downloadDir,
+                      String extension,
+                      String name,
                       IRequest request,
                       ISuccess success,
                       IFailure failure,
@@ -47,6 +54,9 @@ public class RestClient {
                       Context context) {
         URL = url;
         PARAMS.putAll(params);
+        DOWNLOAD_DIR = downloadDir;
+        EXTENSION = extension;
+        NAME = name;
         REQUEST = request;
         SUCCESS = success;
         FAILURE = failure;
@@ -139,5 +149,10 @@ public class RestClient {
 
     public final void delete() {
         request(HttpMethod.DELETE);
+    }
+
+    public final void download() {
+        new DownloadHandler(URL, DOWNLOAD_DIR, EXTENSION, NAME, REQUEST, SUCCESS, FAILURE, ERROR)
+                .handleDownload();
     }
 }

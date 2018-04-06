@@ -32,6 +32,7 @@ dependencies {
 	
 	api project(':ui')
 	api project(':net')
+	api project(':util')
 	
     //multidex
     api 'com.android.support:multidex:1.0.2'

@@ -3,9 +3,10 @@
 include ':app'
 
 //公共库
-include ':ui', ':net'
+include ':ui', ':net', ':util'
 project(':ui').projectDir = new File("common/ui")
 project(':net').projectDir = new File("common/net")
+project(':util').projectDir = new File("common/util")
 
 //独立组件
 include ':core', ':main', ':splash', ':frame'
