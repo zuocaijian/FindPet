@@ -26,7 +26,7 @@ public class RestCreator {
 
     private static final class RetrofitHolder {
         // TODO: 2018/4/6 base url 应该由外部module传进来
-        private static final String BASE_URL = "";
+        private static final String BASE_URL = "http://127.0.0.1/";
         private static final Retrofit RETROFIT_CLIENT = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .client(OKHttpHolder.OK_HTTP_CLIENT)

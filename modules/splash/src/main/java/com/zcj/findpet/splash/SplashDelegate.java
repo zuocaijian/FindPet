@@ -3,6 +3,7 @@ package com.zcj.findpet.splash;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
+import android.widget.Toast;
 
 import com.zcj.findpet.core.delegate.AwesomeDelegate;
 import com.zcj.net.RestClient;
@@ -22,17 +23,17 @@ public class SplashDelegate extends AwesomeDelegate {
 
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
-
+        testRestClient();
     }
 
     private void testRestClient() {
         RestClient.builder()
-                .url("")
-                .params("", "")
+                .url("https://www.baidu.com")
+                //.params("", "")
                 .success(new ISuccess() {
                     @Override
                     public void onSuccess(String response) {
-
+                        Toast.makeText(getContext(), response, Toast.LENGTH_LONG).show();
                     }
                 })
                 .failure(new IFailure() {
@@ -47,6 +48,7 @@ public class SplashDelegate extends AwesomeDelegate {
 
                     }
                 })
-                .build();
+                .build()
+                .get();
     }
 }
