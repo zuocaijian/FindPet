@@ -3,6 +3,7 @@ package com.zcj.net;
 import android.content.Context;
 
 import com.zcj.net.Interceptors.BaseInterceptor;
+import com.zcj.net.rx.RxRestService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.concurrent.TimeUnit;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 /**
@@ -19,9 +21,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
  */
 public class RestCreator {
 
-    // TODO: 2018/4/6 base url 应该由外部module传进来
     private static String sBaseUrl = "http://127.0.0.1/";
-    // TODO: 2018/4/6 拦截器 应该由外部module传进来
     private static final ArrayList<Interceptor> INTERCEPTORS = new ArrayList<>();
     private static Context sApplicationContext;
     private static boolean isReady;
@@ -39,18 +39,24 @@ public class RestCreator {
         return RestServiceHolder.REST_SERVICE;
     }
 
+    public static RxRestService getRxRestService() {
+        checkInit();
+        return RxRestServiceHolder.RX_REST_SERVICE;
+    }
+
     public static WeakHashMap<String, Object> getParams() {
         checkInit();
         return ParamsHolder.PARAMS;
     }
 
     public static Context getApplicationContext() {
+        checkInit();
         return sApplicationContext;
     }
 
     private static void checkInit() {
         if (!isReady) {
-            throw new RuntimeException("RestCreator must init before use!");
+            throw new RuntimeException("RestCreator must initialization before use!");
         }
     }
 
@@ -63,6 +69,7 @@ public class RestCreator {
                 .baseUrl(sBaseUrl)
                 .client(OKHttpHolder.OK_HTTP_CLIENT)
                 .addConverterFactory(ScalarsConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
     }
 
@@ -87,5 +94,10 @@ public class RestCreator {
     private static final class RestServiceHolder {
         private static final RestService REST_SERVICE =
                 RetrofitHolder.RETROFIT_CLIENT.create(RestService.class);
+    }
+
+    private static final class RxRestServiceHolder {
+        private static final RxRestService RX_REST_SERVICE =
+                RetrofitHolder.RETROFIT_CLIENT.create(RxRestService.class);
     }
 }
