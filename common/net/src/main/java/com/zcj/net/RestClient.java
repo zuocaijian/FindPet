@@ -6,6 +6,7 @@ import com.zcj.net.callback.IRequest;
 import com.zcj.net.callback.ISuccess;
 
 import java.util.Map;
+import java.util.WeakHashMap;
 
 import okhttp3.RequestBody;
 
@@ -14,7 +15,7 @@ import okhttp3.RequestBody;
  */
 public class RestClient {
     private final String URL;
-    private final Map<String, Object> PARAMS;
+    private static final WeakHashMap<String, Object> PARAMS = RestCreator.getParams();
     private final IRequest REQUEST;
     private final ISuccess SUCCESS;
     private final IFailure FAILURE;
@@ -29,7 +30,7 @@ public class RestClient {
                       IError error,
                       RequestBody body) {
         URL = url;
-        PARAMS = params;
+        PARAMS.putAll(params);
         REQUEST = request;
         SUCCESS = success;
         FAILURE = failure;

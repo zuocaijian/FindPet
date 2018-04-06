@@ -1,5 +1,6 @@
 package com.zcj.net;
 
+import java.util.WeakHashMap;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -13,6 +14,14 @@ public class RestCreator {
 
     public static RestService getRestService() {
         return RestServiceHolder.REST_SERVICE;
+    }
+
+    public static WeakHashMap<String, Object> getParams(){
+        return ParamsHolder.PARAMS;
+    }
+
+    private static final class ParamsHolder{
+        private static final WeakHashMap<String, Object> PARAMS = new WeakHashMap<>();
     }
 
     private static final class RetrofitHolder {

@@ -6,7 +6,6 @@ import com.zcj.net.callback.IRequest;
 import com.zcj.net.callback.ISuccess;
 
 import java.util.Map;
-import java.util.WeakHashMap;
 
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
@@ -17,7 +16,7 @@ import okhttp3.RequestBody;
 public class RestClientBuilder {
 
     private String mUrl;
-    private Map<String, Object> mParams;
+    private static final Map<String, Object> PARAMS = RestCreator.getParams();
     private IRequest mIRequest;
     private ISuccess mISuccess;
     private IFailure mIFailure;
@@ -33,15 +32,12 @@ public class RestClientBuilder {
     }
 
     public final RestClientBuilder params(Map<String, Object> params) {
-        this.mParams = params;
+        PARAMS.putAll(params);
         return this;
     }
 
     public final RestClientBuilder params(String key, Object value) {
-        if (mParams == null) {
-            mParams = new WeakHashMap<>();
-        }
-        this.mParams.put(key, value);
+        this.PARAMS.put(key, value);
         return this;
     }
 
@@ -70,14 +66,7 @@ public class RestClientBuilder {
         return this;
     }
 
-    private Map<String, Object> checkParams() {
-        if (mParams == null) {
-            return new WeakHashMap<>();
-        }
-        return mParams;
-    }
-
     public final RestClient build() {
-        return new RestClient(mUrl, mParams, mIRequest, mISuccess, mIFailure, mIError, mBody);
+        return new RestClient(mUrl, PARAMS, mIRequest, mISuccess, mIFailure, mIError, mBody);
     }
 }
