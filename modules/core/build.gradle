@@ -1,4 +1,7 @@
+//module core
+
 apply plugin: 'com.android.library'
+apply plugin: 'com.jakewharton.butterknife'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -34,9 +37,6 @@ dependencies {
     api "com.android.support.constraint:constraint-layout:$rootProject.ext.constraintLayoutVersion"
     api "com.android.support:design:$rootProject.ext.supportVersion"
 	
-    //butterknife
-    api 'com.jakewharton:butterknife:8.8.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     //multidex
     api 'com.android.support:multidex:1.0.2'
     //eventbus
