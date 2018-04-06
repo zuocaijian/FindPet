@@ -3,7 +3,7 @@ package com.zcj.net.rx;
 import android.content.Context;
 
 import com.zcj.net.RestCreator;
-import com.zcj.ui.LoaderStyle;
+import com.zcj.ui.loader.LoaderStyle;
 
 import java.io.File;
 import java.util.Map;

@@ -6,7 +6,7 @@ import com.zcj.net.callback.IError;
 import com.zcj.net.callback.IFailure;
 import com.zcj.net.callback.IRequest;
 import com.zcj.net.callback.ISuccess;
-import com.zcj.ui.LoaderStyle;
+import com.zcj.ui.loader.LoaderStyle;
 
 import java.io.File;
 import java.util.Map;

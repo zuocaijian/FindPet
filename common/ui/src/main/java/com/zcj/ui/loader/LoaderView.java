@@ -1,4 +1,4 @@
-package com.zcj.ui;
+package com.zcj.ui.loader;
 
 import android.content.Context;
 import android.support.v7.app.AppCompatDialog;
@@ -7,6 +7,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.wang.avi.AVLoadingIndicatorView;
+import com.zcj.ui.R;
 import com.zcj.ui.util.DimenUtils;
 
 import java.util.ArrayList;

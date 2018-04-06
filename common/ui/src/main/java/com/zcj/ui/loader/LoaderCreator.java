@@ -1,4 +1,4 @@
-package com.zcj.ui;
+package com.zcj.ui.loader;
 
 import android.content.Context;
 import android.text.TextUtils;

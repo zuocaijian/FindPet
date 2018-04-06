@@ -8,8 +8,8 @@ import com.zcj.net.callback.IRequest;
 import com.zcj.net.callback.ISuccess;
 import com.zcj.net.callback.RequestCallbacks;
 import com.zcj.net.download.DownloadHandler;
-import com.zcj.ui.LoaderStyle;
-import com.zcj.ui.LoaderView;
+import com.zcj.ui.loader.LoaderStyle;
+import com.zcj.ui.loader.LoaderView;
 
 import java.io.File;
 import java.util.Map;

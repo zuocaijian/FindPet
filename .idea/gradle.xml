@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/modules/core" />
             <option value="$PROJECT_DIR$/modules/frame" />
             <option value="$PROJECT_DIR$/modules/main" />
+            <option value="$PROJECT_DIR$/modules/sign" />
             <option value="$PROJECT_DIR$/modules/splash" />
           </set>
         </option>

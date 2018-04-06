@@ -1,4 +1,4 @@
-//module splash
+//module sign
 
 apply plugin: 'com.android.library'
 apply plugin: 'com.jakewharton.butterknife'
@@ -9,8 +9,8 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode rootProject.ext.splashVersionCode
-        versionName rootProject.ext.splashVersionName
+        versionCode rootProject.ext.signVersionCode
+        versionName rootProject.ext.signVersionName
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -21,13 +21,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-    api project(':core')
+	
+	api project(':core')
 
     //butterknife
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'

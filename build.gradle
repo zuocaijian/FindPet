@@ -22,6 +22,9 @@ ext {
 	//splash 版本号
 	splashVersionCode = 1
 	splashVersionName = "0.1.0"
+	//登录注册 版本号
+	signVersionCode = 1
+	signVersionName = "0.1.0"
     //frame 版本号
     frameVersionCode = 1
     frameVersionName = "0.1.0"

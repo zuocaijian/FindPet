@@ -2,8 +2,8 @@ package com.zcj.net.callback;
 
 import android.os.Handler;
 
-import com.zcj.ui.LoaderStyle;
-import com.zcj.ui.LoaderView;
+import com.zcj.ui.loader.LoaderStyle;
+import com.zcj.ui.loader.LoaderView;
 
 import retrofit2.Call;
 import retrofit2.Callback;

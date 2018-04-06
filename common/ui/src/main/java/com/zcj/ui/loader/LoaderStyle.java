@@ -1,4 +1,4 @@
-package com.zcj.ui;
+package com.zcj.ui.loader;
 
 /**
  * Created by zcj on 2018/4/6 12:26
