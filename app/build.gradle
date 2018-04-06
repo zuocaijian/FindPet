@@ -1,3 +1,5 @@
+//module app
+
 apply plugin: 'com.android.application'
 
 android {
@@ -24,10 +26,10 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'surprise'
-            keyPassword 'surprise'
-            storeFile file('surprise.jks')
-            storePassword 'surprise'
+            keyAlias 'findpet'
+            keyPassword 'findpet'
+            storeFile file('findpet.jks')
+            storePassword 'findpet'
             v1SigningEnabled true
             v2SigningEnabled false
         }
@@ -37,6 +39,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
 }

@@ -1,10 +1,14 @@
 package com.zcj.net;
 
+import android.content.Context;
+
 import com.zcj.net.callback.IError;
 import com.zcj.net.callback.IFailure;
 import com.zcj.net.callback.IRequest;
 import com.zcj.net.callback.ISuccess;
 import com.zcj.net.callback.RequestCallbacks;
+import com.zcj.ui.LoaderStyle;
+import com.zcj.ui.LoaderView;
 
 import java.util.Map;
 import java.util.WeakHashMap;
@@ -24,6 +28,8 @@ public class RestClient {
     private final IFailure FAILURE;
     private final IError ERROR;
     private final RequestBody BODY;
+    private final LoaderStyle LOADER_STYLE;
+    private final Context CONTEXT;
 
     public RestClient(String url,
                       Map<String, Object> params,
@@ -31,7 +37,9 @@ public class RestClient {
                       ISuccess success,
                       IFailure failure,
                       IError error,
-                      RequestBody body) {
+                      RequestBody body,
+                      LoaderStyle loaderStyle,
+                      Context context) {
         URL = url;
         PARAMS.putAll(params);
         REQUEST = request;
@@ -39,6 +47,8 @@ public class RestClient {
         FAILURE = failure;
         ERROR = error;
         BODY = body;
+        LOADER_STYLE = loaderStyle;
+        CONTEXT = context;
     }
 
     public static RestClientBuilder builder() {
@@ -51,6 +61,10 @@ public class RestClient {
 
         if (REQUEST != null) {
             REQUEST.onRequestStart();
+        }
+
+        if (LOADER_STYLE != null) {
+            LoaderView.showLoading(CONTEXT, LOADER_STYLE);
         }
 
         switch (method) {
@@ -76,7 +90,7 @@ public class RestClient {
     }
 
     private Callback<String> getRequestCallbacks() {
-        return new RequestCallbacks(REQUEST, SUCCESS, FAILURE, ERROR);
+        return new RequestCallbacks(REQUEST, SUCCESS, FAILURE, ERROR, LOADER_STYLE);
     }
 
     public final void get() {

@@ -21,7 +21,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
 }
 
 dependencies {
@@ -33,10 +32,6 @@ dependencies {
 	
 	api project(':ui')
 	api project(':net')
-	
-    api "com.android.support:appcompat-v7:$rootProject.ext.supportVersion"
-    api "com.android.support.constraint:constraint-layout:$rootProject.ext.constraintLayoutVersion"
-    api "com.android.support:design:$rootProject.ext.supportVersion"
 	
     //multidex
     api 'com.android.support:multidex:1.0.2'

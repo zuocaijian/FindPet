@@ -25,6 +25,11 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+	
+	api "com.android.support:appcompat-v7:$rootProject.ext.supportVersion"
+    api "com.android.support.constraint:constraint-layout:$rootProject.ext.constraintLayoutVersion"
+    api "com.android.support:design:$rootProject.ext.supportVersion"
+	
     //字体图片
     api 'com.joanzapata.iconify:android-iconify-ionicons:2.2.2'
     api 'com.joanzapata.iconify:android-iconify-fontawesome:2.2.2'
@@ -34,4 +39,6 @@ dependencies {
 	//butterknife
     api 'com.jakewharton:butterknife:8.4.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+	//AVLoadingIndicatorView 加载中动画视图
+	api 'com.wang.avi:library:2.1.3'
 }

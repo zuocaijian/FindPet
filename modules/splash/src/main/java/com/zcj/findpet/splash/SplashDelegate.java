@@ -30,6 +30,7 @@ public class SplashDelegate extends AwesomeDelegate {
         RestClient.builder()
                 .url("https://www.baidu.com")
                 //.params("", "")
+                .loader(getContext())
                 .success(new ISuccess() {
                     @Override
                     public void onSuccess(String response) {
