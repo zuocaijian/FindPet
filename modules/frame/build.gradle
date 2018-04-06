@@ -25,6 +25,6 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation project(':core')
+    api project(':core')
     implementation 'com.aurelhubert:ahbottomnavigation:2.1.0'
 }
