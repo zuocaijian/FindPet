@@ -55,13 +55,13 @@ public class SplashCountdownDelegate extends AwesomeDelegate implements Countdow
 
     @Override
     public void goScroll() {
-        start(new SplashScrollDelegate(), SINGLETASK);
+        startWithPop(new SplashScrollDelegate());
     }
 
     @Override
     public void goSignIn() {
         // TODO: 2018/4/8 测试
-        start((ISupportFragment) ARouter.getInstance().build("/sign/signUpFragment").navigation());
+        startWithPop((ISupportFragment) ARouter.getInstance().build("/sign/signUpFragment").navigation());
     }
 
     @Override

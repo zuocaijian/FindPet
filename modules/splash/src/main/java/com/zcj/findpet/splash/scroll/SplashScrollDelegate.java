@@ -74,7 +74,7 @@ public class SplashScrollDelegate extends AwesomeDelegate implements ScrollContr
     @Override
     public void goSignIn() {
         // TODO: 2018/4/8 测试
-        start((ISupportFragment) ARouter.getInstance().build("/sign/signUpFragment").navigation());
+        startWithPop((ISupportFragment) ARouter.getInstance().build("/sign/signUpFragment").navigation());
     }
 
     @Override
