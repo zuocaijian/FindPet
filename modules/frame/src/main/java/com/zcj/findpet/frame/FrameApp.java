@@ -1,6 +1,6 @@
 package com.zcj.findpet.frame;
 
-import android.content.Context;
+import android.app.Application;
 
 import com.zcj.findpet.core.app.Awesome;
 import com.zcj.findpet.core.app.IAppInitTask;
@@ -12,8 +12,8 @@ import com.zcj.findpet.frame.icon.FontFrameModule;
 public final class FrameApp implements IAppInitTask {
 
     @Override
-    public final void onAppCreate(Context context) {
-        Awesome.init(context.getApplicationContext())
+    public final void onAppCreate(Application app) {
+        Awesome.init(app)
                 .withIcon(new FontFrameModule())
                 .configured();
     }

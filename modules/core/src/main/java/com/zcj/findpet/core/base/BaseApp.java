@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.support.multidex.MultiDex;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
 import com.zcj.findpet.core.R;
 import com.zcj.findpet.core.app.Awesome;
@@ -34,6 +35,13 @@ public class BaseApp extends Application {
                 .withApiHost("http://127.0.0.1/")
                 .withInterceptor(new DebugInterceptor("index", R.raw.test))
                 .configured();
+
+        //初始化ARouter
+        if (true) { // TODO: 2018/4/8 如果是debug模式才开启
+            ARouter.openLog();
+            ARouter.openDebug();
+        }
+        ARouter.init((Application) Awesome.getConfiguration(ConfigKeys.APPLICATION));
 
         //必须在使用网络框架前对网络框架初始化
         RestCreator.init(Awesome.getApplicationContext(), (String) Awesome.getConfiguration(ConfigKeys.API_HOST),

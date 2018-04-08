@@ -43,6 +43,7 @@ public class MainActivity extends BaseActivity {
         initBottomNavigation();
     }
 
+    @SuppressWarnings("deprecation")
     private void initBottomNavigation() {
         AHBottomNavigationItem item;
         mBottomItems.clear();

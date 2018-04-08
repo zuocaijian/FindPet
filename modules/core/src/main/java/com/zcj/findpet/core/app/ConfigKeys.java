@@ -6,6 +6,7 @@ package com.zcj.findpet.core.app;
 public enum ConfigKeys {
     API_HOST,
     APPLICATION_CONTEXT,
+    APPLICATION,
     MAIN_HANDLER,
     CONFIG_READY,
     ICON,

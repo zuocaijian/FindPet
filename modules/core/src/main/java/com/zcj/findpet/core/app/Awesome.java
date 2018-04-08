@@ -1,5 +1,6 @@
 package com.zcj.findpet.core.app;
 
+import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
@@ -10,8 +11,9 @@ import java.util.HashMap;
  * Created by zcj on 2018/4/6 2:37
  */
 public final class Awesome {
-    public static Configurator init(Context context) {
-        getConfigurations().put(ConfigKeys.APPLICATION_CONTEXT, context.getApplicationContext());
+    public static Configurator init(Application app) {
+        getConfigurations().put(ConfigKeys.APPLICATION_CONTEXT, app.getApplicationContext());
+        getConfigurations().put(ConfigKeys.APPLICATION, app);
         getConfigurations().put(ConfigKeys.MAIN_HANDLER, new Handler(Looper.getMainLooper()));
         return Configurator.getInstance();
     }

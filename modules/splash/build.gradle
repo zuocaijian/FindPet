@@ -13,6 +13,13 @@ android {
         versionName rootProject.ext.splashVersionName
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        //阿里ARouter
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
     }
 
     buildTypes {
@@ -30,5 +37,7 @@ dependencies {
     api project(':core')
 
     //butterknife
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+    annotationProcessor "com.jakewharton:butterknife-compiler:${BUTTERKNIFE_COMPILER_VERSION}"
+    //阿里开源路由ARouter组件
+    annotationProcessor "com.alibaba:arouter-compiler:${AROUTER_COMPILER}"
 }

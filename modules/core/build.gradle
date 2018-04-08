@@ -13,6 +13,13 @@ android {
         versionName rootProject.ext.coreVersionName
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        //阿里ARouter
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
     }
 
     buildTypes {
@@ -31,15 +38,22 @@ dependencies {
     api project(':ui')
     api project(':net')
     api project(':util')
-	api project(':trace')
-	api project(':share')
-	api project(':hybird')
-	api project(':image')
-	
+    api project(':trace')
+    api project(':share')
+    api project(':hybird')
+    api project(':image')
+
     //multidex
     api 'com.android.support:multidex:1.0.2'
     //eventbus
     api 'org.greenrobot:eventbus:3.1.1'
-	//json依赖
+    //json依赖
     api 'com.alibaba:fastjson:1.2.47'
+    //butterknife
+    annotationProcessor "com.jakewharton:butterknife-compiler:${BUTTERKNIFE_COMPILER_VERSION}"
+    //阿里开源路由ARouter组建
+    api("com.alibaba:arouter-api:${AROUTER_API}") {
+        exclude group: "com.android.support", module: "support-v4"
+    }
+    annotationProcessor "com.alibaba:arouter-compiler:${AROUTER_COMPILER}"
 }

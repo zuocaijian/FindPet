@@ -54,6 +54,7 @@ public class SplashScrollDelegate extends AwesomeDelegate implements ScrollContr
     public void onPageScrollStateChanged(int state) {
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public void setScrollPages(CBViewHolderCreator holderCreator, List datas,
                                int[] pageIndicatorId,
