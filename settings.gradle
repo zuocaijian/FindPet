@@ -3,9 +3,10 @@
 include ':app'
 
 //公共库
-include ':ui', ':net', ':util', ':trace', ':share', ':hybird'
+include ':ui', ':net', ':image', ':util', ':trace', ':share', ':hybird'
 project(':ui').projectDir = new File("common/ui")
 project(':net').projectDir = new File("common/net")
+project(':image').projectDir = new File("common/image")
 project(':util').projectDir = new File("common/util")
 project(':trace').projectDir = new File("common/trace")
 project(':share').projectDir = new File("common/share")

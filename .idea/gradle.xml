@@ -10,6 +10,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/common/hybird" />
+            <option value="$PROJECT_DIR$/common/image" />
             <option value="$PROJECT_DIR$/common/net" />
             <option value="$PROJECT_DIR$/common/share" />
             <option value="$PROJECT_DIR$/common/trace" />
