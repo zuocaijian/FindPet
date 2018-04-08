@@ -3,6 +3,7 @@ package com.zcj.findpet.frame;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationViewPager;
@@ -15,6 +16,8 @@ import java.util.List;
 /**
  * Created by cj_zu on 2018/4/5.
  */
+
+@Route(path = "/frame/mainActivity")
 public class MainActivity extends BaseActivity {
 
     AHBottomNavigationViewPager mMainViewPager;

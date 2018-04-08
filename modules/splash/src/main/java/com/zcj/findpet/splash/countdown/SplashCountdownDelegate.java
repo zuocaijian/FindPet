@@ -6,6 +6,7 @@ import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
 import android.widget.Toast;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.zcj.findpet.core.app.Awesome;
 import com.zcj.findpet.core.delegate.AwesomeDelegate;
 import com.zcj.findpet.splash.R;
@@ -14,6 +15,7 @@ import com.zcj.findpet.splash.scroll.SplashScrollDelegate;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import me.yokeyword.fragmentation.ISupportFragment;
 
 /**
  * Created by zcj on 2018/4/6 9:42
@@ -58,10 +60,13 @@ public class SplashCountdownDelegate extends AwesomeDelegate implements Countdow
 
     @Override
     public void goSignIn() {
+        // TODO: 2018/4/8 测试
+        start((ISupportFragment) ARouter.getInstance().build("/sign/signUpFragment").navigation());
     }
 
     @Override
     public void goMain() {
+        ARouter.getInstance().build("/frame/mainActivity").navigation();
     }
 
     @Override

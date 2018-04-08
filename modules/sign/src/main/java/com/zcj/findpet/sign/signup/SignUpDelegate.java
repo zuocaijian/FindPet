@@ -6,6 +6,7 @@ import android.support.v7.widget.AppCompatEditText;
 import android.view.View;
 import android.widget.Toast;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.zcj.findpet.core.app.Awesome;
 import com.zcj.findpet.core.delegate.AwesomeDelegate;
 import com.zcj.findpet.sign.R;
@@ -17,6 +18,7 @@ import butterknife.OnClick;
 /**
  * Created by zcj on 2018/4/7 0:19
  */
+@Route(path = "/sign/signUpFragment")
 public class SignUpDelegate extends AwesomeDelegate implements UpContract.View {
 
     @BindView(R2.id.edit_sign_up_name)

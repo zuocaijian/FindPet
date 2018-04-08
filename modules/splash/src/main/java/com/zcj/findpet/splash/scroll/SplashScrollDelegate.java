@@ -6,6 +6,7 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.Toast;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
 import com.bigkoo.convenientbanner.listener.OnItemClickListener;
@@ -13,6 +14,8 @@ import com.zcj.findpet.core.app.Awesome;
 import com.zcj.findpet.core.delegate.AwesomeDelegate;
 
 import java.util.List;
+
+import me.yokeyword.fragmentation.ISupportFragment;
 
 /**
  * Created by zcj on 2018/4/6 23:02
@@ -70,10 +73,13 @@ public class SplashScrollDelegate extends AwesomeDelegate implements ScrollContr
 
     @Override
     public void goSignIn() {
+        // TODO: 2018/4/8 测试
+        start((ISupportFragment) ARouter.getInstance().build("/sign/signUpFragment").navigation());
     }
 
     @Override
     public void goMain() {
+        ARouter.getInstance().build("/frame/mainActivity").navigation();
     }
 
     @Override
