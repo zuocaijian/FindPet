@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBar;
 
 import com.zcj.findpet.core.activities.ProxyActivity;
 import com.zcj.findpet.core.delegate.AwesomeDelegate;
+import com.zcj.findpet.sign.SignUpDelegate;
 import com.zcj.findpet.splash.SplashDelegate;
 
 /**
@@ -24,6 +25,6 @@ public class MainActivity extends ProxyActivity {
 
     @Override
     public AwesomeDelegate setRootDelegate() {
-        return new SplashDelegate();
+        return new SignUpDelegate();
     }
 }
