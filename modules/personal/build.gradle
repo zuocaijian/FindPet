@@ -1,4 +1,4 @@
-//module sign
+//module personal
 
 apply plugin: 'com.android.library'
 apply plugin: 'com.jakewharton.butterknife'
@@ -25,8 +25,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-	
-	api project(':core')
+
+    api project(':core')
 
     //butterknife
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'

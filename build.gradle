@@ -41,6 +41,9 @@ ext {
     //frame 版本号
     frameVersionCode = 1
     frameVersionName = "0.1.0"
+	//个人中心 版本号
+    personalVersionCode = 1
+    personalVersionName = "0.1.0"
 
     //公共版本号
     compileSdkVersion = 27

@@ -13,9 +13,10 @@ project(':share').projectDir = new File("common/share")
 project(':hybird').projectDir = new File("common/hybird")
 
 //独立组件
-include ':core', ':main', ':splash', ':sign', ':frame'
+include ':core', ':main', ':splash', ':sign', ':frame', ':personal'
 project(':core').projectDir = new File("modules/core")
 project(':main').projectDir = new File("modules/main")
 project(':splash').projectDir = new File("modules/splash")
 project(':sign').projectDir = new File("modules/sign")
 project(':frame').projectDir = new File("modules/frame")
+project(':personal').projectDir = new File("modules/personal")
