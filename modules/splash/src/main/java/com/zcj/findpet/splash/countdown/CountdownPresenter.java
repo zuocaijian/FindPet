@@ -19,7 +19,7 @@ import io.reactivex.disposables.Disposable;
  * Datetime: 2018/4/8 10:29
  * Author: zcj
  */
-public class CountdownPresenter implements CountdownContract.Presenter, ITimerListener {
+class CountdownPresenter implements CountdownContract.Presenter, ITimerListener {
 
     private CountdownContract.View mView;
     private CountdownContract.Model mModel;

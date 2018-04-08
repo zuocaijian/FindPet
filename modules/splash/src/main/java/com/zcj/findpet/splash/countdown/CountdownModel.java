@@ -22,7 +22,7 @@ import io.reactivex.schedulers.Schedulers;
  * Datetime: 2018/4/8 11:00
  * Author: zcj
  */
-public class CountdownModel implements CountdownContract.Model {
+class CountdownModel implements CountdownContract.Model {
 
     @Override
     public boolean isSignIn() {

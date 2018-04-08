@@ -13,7 +13,7 @@ import java.util.List;
  * Datetime: 2018/4/8 11:41
  * Author: zcj
  */
-public interface ScrollContract extends BaseContract<ScrollContract.Presenter, ScrollContract.View, ScrollContract.Model> {
+interface ScrollContract extends BaseContract<ScrollContract.Presenter, ScrollContract.View, ScrollContract.Model> {
 
     interface View extends BaseView<Presenter> {
         void setScrollPages(CBViewHolderCreator holderCreator,

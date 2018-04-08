@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * Datetime: 2018/4/8 11:44
  * Author: zcj
  */
-public class ScrollPresenter implements ScrollContract.Presenter {
+class ScrollPresenter implements ScrollContract.Presenter {
 
     private ScrollContract.View mView;
     private ScrollContract.Model mModel;

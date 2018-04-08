@@ -7,7 +7,7 @@ import com.zcj.ui.launcher.ScrollLauncherTag;
  * Datetime: 2018/4/8 11:44
  * Author: zcj
  */
-public class ScrollModel implements ScrollContract.Model {
+class ScrollModel implements ScrollContract.Model {
 
     @Override
     public boolean isSignIn() {

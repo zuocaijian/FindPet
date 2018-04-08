@@ -16,7 +16,7 @@ import io.reactivex.Observer;
  * Datetime: 2018/4/8 10:16
  * Author: zcj
  */
-public interface CountdownContract extends BaseContract<CountdownContract.Presenter, CountdownContract.View, CountdownContract.Model> {
+interface CountdownContract extends BaseContract<CountdownContract.Presenter, CountdownContract.View, CountdownContract.Model> {
 
     interface View extends BaseView<Presenter> {
         boolean isTvNull();
