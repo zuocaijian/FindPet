@@ -16,6 +16,9 @@ ext {
 	//公共埋点统计库 版本号
 	traceVersionCode = 1
 	traceVersionName = "0.1.0"
+	//公共社会化分享库 版本号
+	shareVersionCode = 1
+	shareVersionName = "0.1.0"
 	//core 版本号
 	coreVersionCode = 1
 	coreVersionName = "0.1.0"
