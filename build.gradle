@@ -19,6 +19,10 @@ ext {
 	//公共社会化分享库 版本号
 	shareVersionCode = 1
 	shareVersionName = "0.1.0"
+	//公共混合开发库 版本号
+	hybirdVersionCode = 1
+	hybirdVersionName = "0.1.0"
+	
 	//core 版本号
 	coreVersionCode = 1
 	coreVersionName = "0.1.0"

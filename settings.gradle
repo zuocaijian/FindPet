@@ -3,12 +3,13 @@
 include ':app'
 
 //公共库
-include ':ui', ':net', ':util', ':trace', ':share'
+include ':ui', ':net', ':util', ':trace', ':share', ':hybird'
 project(':ui').projectDir = new File("common/ui")
 project(':net').projectDir = new File("common/net")
 project(':util').projectDir = new File("common/util")
 project(':trace').projectDir = new File("common/trace")
 project(':share').projectDir = new File("common/share")
+project(':hybird').projectDir = new File("common/hybird")
 
 //独立组件
 include ':core', ':main', ':splash', ':sign', ':frame'

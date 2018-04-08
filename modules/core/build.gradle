@@ -33,6 +33,7 @@ dependencies {
     api project(':util')
 	api project(':trace')
 	api project(':share')
+	api project(':hybird')
 	
     //multidex
     api 'com.android.support:multidex:1.0.2'
