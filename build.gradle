@@ -13,6 +13,9 @@ ext {
 	//公共工具库 版本号
 	utilVersionCode = 1
 	utilVersionName = "0.1.0"
+	//公共埋点统计库 版本号
+	traceVersionCode = 1
+	traceVersionName = "0.1.0"
 	//core 版本号
 	coreVersionCode = 1
 	coreVersionName = "0.1.0"
