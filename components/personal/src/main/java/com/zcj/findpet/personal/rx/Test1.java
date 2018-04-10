@@ -27,7 +27,7 @@ public class Test1 {
                     @Override
                     public void onSuccess(String response) {
                         //注册成功之后再调用登录接口
-                        //login();
+                        login();
                     }
                 })
                 .build()

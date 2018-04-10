@@ -3,6 +3,7 @@ package com.zcj.findpet.personal.me;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.zcj.findpet.core.app.Awesome;
@@ -10,6 +11,7 @@ import com.zcj.findpet.core.delegate.AwesomeDelegate;
 import com.zcj.findpet.personal.R;
 import com.zcj.findpet.personal.R2;
 
+import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
@@ -20,9 +22,17 @@ public class MeDelegate extends AwesomeDelegate implements MeContract.View {
 
     private MeContract.Presenter mPresenter;
 
+    @BindView(R2.id.iv)
+    ImageView mIv;
+
     @OnClick(R2.id.btn)
     void onClick() {
         mPresenter.testRx();
+    }
+
+    @OnClick(R2.id.btn2)
+    void onLoadImg() {
+        mPresenter.loadImg(mIv);
     }
 
     @Override

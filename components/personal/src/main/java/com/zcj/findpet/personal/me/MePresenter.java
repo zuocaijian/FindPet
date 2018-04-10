@@ -1,6 +1,9 @@
 package com.zcj.findpet.personal.me;
 
 import android.content.Context;
+import android.widget.ImageView;
+
+import com.zcj.image.ImageLoader;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -85,6 +88,16 @@ public class MePresenter implements MeContract.Presenter {
     @Override
     public void testRx() {
         mEmitter.onNext(new ClickEvent(++mClickIndex));
+    }
+
+    @Override
+    public void loadImg(ImageView view) {
+        ImageLoader
+                .getInstance()
+                //.load("http://www.gif5.net/img/images/2016/06/23/NWFXOTVZNko1YTZ6.gif")
+                .load("https://www.baidu.com/img/superlogo_c4d7df0a003d3db9b65e9ef0fe6da1ec.png?where=super")
+                .with(mContext)
+                .into(view);
     }
 
     @Override

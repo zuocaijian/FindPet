@@ -1,5 +1,7 @@
 package com.zcj.findpet.personal.me;
 
+import android.widget.ImageView;
+
 import com.zcj.findpet.core.base.mvp.BaseModel;
 import com.zcj.findpet.core.base.mvp.BasePresenter;
 import com.zcj.findpet.core.base.mvp.BaseView;
@@ -15,6 +17,8 @@ public interface MeContract {
 
     interface Presenter extends BasePresenter<View> {
         void testRx();
+
+        void loadImg(ImageView view);
 
         void release();
     }
