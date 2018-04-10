@@ -6,7 +6,7 @@ import android.support.v7.app.ActionBar;
 
 import com.zcj.findpet.core.activities.ProxyActivity;
 import com.zcj.findpet.core.delegate.AwesomeDelegate;
-import com.zcj.findpet.splash.countdown.SplashCountdownDelegate;
+import com.zcj.findpet.personal.me.MeDelegate;
 
 /**
  * Created by zcj on 2018/4/6 9:54
@@ -24,6 +24,6 @@ public class MainActivity extends ProxyActivity {
 
     @Override
     public AwesomeDelegate setRootDelegate() {
-        return new SplashCountdownDelegate();
+        return new MeDelegate();
     }
 }
