@@ -32,7 +32,8 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    api project(':core')
+
+    implementation project(':core')
 
     implementation 'com.aurelhubert:ahbottomnavigation:2.1.0'
     //butterknife
