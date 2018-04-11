@@ -24,6 +24,6 @@ public class MainActivity extends ProxyActivity {
 
     @Override
     public AwesomeDelegate setRootDelegate() {
-        return (AwesomeDelegate) ARouter.getInstance().build("/personal/me").navigation();
+        return (AwesomeDelegate) ARouter.getInstance().build("/splash/countdownFragment").navigation();
     }
 }

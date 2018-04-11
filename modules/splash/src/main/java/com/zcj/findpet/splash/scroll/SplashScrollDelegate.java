@@ -6,6 +6,7 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.Toast;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
@@ -20,6 +21,7 @@ import me.yokeyword.fragmentation.ISupportFragment;
 /**
  * Created by zcj on 2018/4/6 23:02
  */
+@Route(path = "/splash/scrollFragment")
 public class SplashScrollDelegate extends AwesomeDelegate implements ScrollContract.View,
         OnItemClickListener, ViewPager.OnPageChangeListener {
 

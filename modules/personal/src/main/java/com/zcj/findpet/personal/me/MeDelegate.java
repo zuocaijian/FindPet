@@ -19,7 +19,7 @@ import butterknife.OnClick;
  * Datetime: 2018/4/10 9:52
  * Author: zcj
  */
-@Route(path = "/personal/me")
+@Route(path = "/personal/meFragment")
 public class MeDelegate extends AwesomeDelegate implements MeContract.View {
 
     private MeContract.Presenter mPresenter;

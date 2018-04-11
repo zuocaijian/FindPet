@@ -6,6 +6,7 @@ import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
 import android.widget.Toast;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.zcj.findpet.core.app.Awesome;
 import com.zcj.findpet.core.delegate.AwesomeDelegate;
@@ -20,6 +21,7 @@ import me.yokeyword.fragmentation.ISupportFragment;
 /**
  * Created by zcj on 2018/4/6 9:42
  */
+@Route(path = "/splash/countdownFragment")
 public class SplashCountdownDelegate extends AwesomeDelegate implements CountdownContract.View {
 
     @BindView(R2.id.tv_launcher_timer)

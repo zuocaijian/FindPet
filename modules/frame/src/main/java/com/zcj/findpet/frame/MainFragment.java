@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.joanzapata.iconify.widget.IconTextView;
 import com.zcj.findpet.core.base.BaseFragment;
 
@@ -11,6 +12,7 @@ import com.zcj.findpet.core.base.BaseFragment;
 /**
  * Created by cj_zu on 2018/4/5.
  */
+@Route(path = "/frame/mainFragment")
 public class MainFragment extends BaseFragment {
     public static final String ARG_POSITION = "arg_position";
 
