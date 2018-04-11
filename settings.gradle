@@ -2,7 +2,7 @@
 
 include ':app'
 
-//公共库
+//公共组件层
 include ':ui', ':net', ':image', ':util', ':trace', ':share', ':hybird'
 project(':ui').projectDir = new File("common/ui")
 project(':net').projectDir = new File("common/net")
@@ -12,14 +12,14 @@ project(':trace').projectDir = new File("common/trace")
 project(':share').projectDir = new File("common/share")
 project(':hybird').projectDir = new File("common/hybird")
 
-//独立组件
-include ':core', ':splash', ':sign', ':frame', ':personal'
+//核心业务组件
+include ':core'
 project(':core').projectDir = new File("components/core")
-project(':splash').projectDir = new File("components/splash")
-project(':sign').projectDir = new File("components/sign")
-project(':frame').projectDir = new File("components/frame")
-project(':personal').projectDir = new File("components/personal")
 
-//业务模块
-include ':main'
+//独立业务组件
+include ':main', ':splash', ':sign', ':frame', ':personal'
 project(':main').projectDir = new File("modules/main")
+project(':splash').projectDir = new File("modules/splash")
+project(':sign').projectDir = new File("modules/sign")
+project(':frame').projectDir = new File("modules/frame")
+project(':personal').projectDir = new File("modules/personal")

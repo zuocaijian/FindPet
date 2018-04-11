@@ -17,11 +17,11 @@
             <option value="$PROJECT_DIR$/common/ui" />
             <option value="$PROJECT_DIR$/common/util" />
             <option value="$PROJECT_DIR$/components/core" />
-            <option value="$PROJECT_DIR$/components/frame" />
-            <option value="$PROJECT_DIR$/components/personal" />
-            <option value="$PROJECT_DIR$/components/sign" />
-            <option value="$PROJECT_DIR$/components/splash" />
+            <option value="$PROJECT_DIR$/modules/frame" />
             <option value="$PROJECT_DIR$/modules/main" />
+            <option value="$PROJECT_DIR$/modules/personal" />
+            <option value="$PROJECT_DIR$/modules/sign" />
+            <option value="$PROJECT_DIR$/modules/splash" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
