@@ -33,10 +33,6 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     api project(':core')
-    implementation project(':splash')
-    implementation project(':frame')
-    implementation project(':sign')
-    implementation project(':personal')
 
     //butterknife
     annotationProcessor "com.jakewharton:butterknife-compiler:${BUTTERKNIFE_COMPILER_VERSION}"

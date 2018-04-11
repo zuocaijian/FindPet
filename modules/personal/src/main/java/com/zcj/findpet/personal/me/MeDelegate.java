@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.zcj.findpet.core.app.Awesome;
 import com.zcj.findpet.core.delegate.AwesomeDelegate;
 import com.zcj.findpet.personal.R;
@@ -18,6 +19,7 @@ import butterknife.OnClick;
  * Datetime: 2018/4/10 9:52
  * Author: zcj
  */
+@Route(path = "/personal/me")
 public class MeDelegate extends AwesomeDelegate implements MeContract.View {
 
     private MeContract.Presenter mPresenter;
