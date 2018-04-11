@@ -49,4 +49,7 @@ dependencies {
 
     implementation project(':main')
     implementation project(':personal')
+    implementation project(':frame')
+    implementation project(':splash')
+    implementation project(':sign')
 }
