@@ -10,7 +10,6 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.zcj.findpet.core.app.Awesome;
 import com.zcj.findpet.core.delegate.AwesomeDelegate;
-import com.zcj.findpet.splash.R;
 import com.zcj.findpet.splash.R2;
 import com.zcj.findpet.splash.scroll.SplashScrollDelegate;
 
@@ -25,11 +24,13 @@ import me.yokeyword.fragmentation.ISupportFragment;
 public class SplashCountdownDelegate extends AwesomeDelegate implements CountdownContract.View {
 
     @BindView(R2.id.tv_launcher_timer)
+    //@BindView(R.id.tv_launcher_timer)
     AppCompatTextView mTvTimer;
 
     private CountdownContract.Presenter mPresenter;
 
     @OnClick(R2.id.tv_launcher_timer)
+    //@OnClick(R.id.tv_launcher_timer)
     void timerAction() {
         mPresenter.terminateCountDown();
     }
