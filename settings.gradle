@@ -1,5 +1,6 @@
 //project settings
 
+//壳App
 include ':app'
 
 //公共组件层

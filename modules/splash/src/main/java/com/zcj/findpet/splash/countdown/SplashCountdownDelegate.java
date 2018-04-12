@@ -10,6 +10,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.zcj.findpet.core.app.Awesome;
 import com.zcj.findpet.core.delegate.AwesomeDelegate;
+import com.zcj.findpet.splash.R;
 import com.zcj.findpet.splash.R2;
 import com.zcj.findpet.splash.scroll.SplashScrollDelegate;
 
