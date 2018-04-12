@@ -48,8 +48,10 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
     implementation project(':main')
-    implementation project(':personal')
-    implementation project(':frame')
-    implementation project(':splash')
-    implementation project(':sign')
+    if (!IS_MODULE.toBoolean()) {
+        implementation project(':personal')
+        implementation project(':frame')
+        implementation project(':splash')
+        implementation project(':sign')
+    }
 }
