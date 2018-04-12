@@ -1,6 +1,10 @@
 //module sign
 
-apply plugin: 'com.android.library'
+if (IS_MODULE.toBoolean()) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
 apply plugin: 'com.jakewharton.butterknife'
 
 android {
@@ -18,6 +22,16 @@ android {
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [moduleName: project.getName()]
+            }
+        }
+    }
+
+    sourceSets {
+        main {
+            if (IS_MODULE.toBoolean()) {
+                manifest.srcFile 'src/main/module/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
             }
         }
     }
