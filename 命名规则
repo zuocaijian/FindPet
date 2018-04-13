@@ -1,0 +1,6 @@
+一、资源命名规则
+    1、组件名前缀，如:splash_、ui_、sign_...；
+    2、类型前缀，如：splash_drawable_、splash_anim_、splash_string_、splash_layout_...；
+    3、功能前缀，如：splash_layout_activity_、splash_layout_fragment_...；
+
+二、

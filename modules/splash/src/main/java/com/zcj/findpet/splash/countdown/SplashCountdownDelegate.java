@@ -1,6 +1,7 @@
 package com.zcj.findpet.splash.countdown;
 
 import android.os.Bundle;
+import android.os.Trace;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
