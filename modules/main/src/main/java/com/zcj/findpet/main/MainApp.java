@@ -26,6 +26,8 @@ public class MainApp extends BaseApp {
         MODULE_INIT_SERVICES.add(signModuleService);
         IModuleInitService splashModuleService = (IModuleInitService) ARouter.getInstance().build("/splash/module").navigation();
         MODULE_INIT_SERVICES.add(splashModuleService);
+        IModuleInitService payModuleService = (IModuleInitService) ARouter.getInstance().build("/pay/module").navigation();
+        MODULE_INIT_SERVICES.add(payModuleService);
 
         initModules();
     }

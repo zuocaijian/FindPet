@@ -1,2 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.zcj.findpet.core" />
+    package="com.zcj.findpet.core">
+
+    <application>
+        <activity android:name="com.zcj.findpet.wxapi.WXEntryActivity" />
+        <activity android:name="com.zcj.findpet.wxapi.WXPayEntryActivity" />
+
+        <receiver android:name="com.zcj.findpet.wxapi.AppRegister" />
+    </application>
+</manifest>

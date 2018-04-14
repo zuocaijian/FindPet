@@ -18,9 +18,15 @@ include ':core'
 project(':core').projectDir = new File("components/core")
 
 //独立业务组件
-include ':main', ':splash', ':sign', ':frame', ':personal'
+include ':main', ':splash', ':sign', ':frame', ':personal', ':pay'
 project(':main').projectDir = new File("modules/main")
 project(':splash').projectDir = new File("modules/splash")
 project(':sign').projectDir = new File("modules/sign")
 project(':frame').projectDir = new File("modules/frame")
 project(':personal').projectDir = new File("modules/personal")
+project(':pay').projectDir = new File("modules/pay")
+
+//注解
+include ':awesome-annotaions'
+//注解编译器
+include ':awesome-compiler'

@@ -1,0 +1,17 @@
+apply plugin: 'java-library'
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':awesome-annotaions')
+    implementation group: 'com.google.auto.service', name: 'auto-service', version: '1.0-rc4'
+    implementation group: 'com.squareup', name: 'javapoet', version: '1.10.0'
+    implementation group: 'com.google.auto', name: 'auto-common', version: '0.10'
+}
+
+//指定编译的编码
+tasks.withType(JavaCompile){
+    options.encoding = "UTF-8"
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"

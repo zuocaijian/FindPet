@@ -9,12 +9,19 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.zcj.findpet.core.app.Awesome;
 import com.zcj.findpet.core.delegate.AwesomeDelegate;
 import com.zcj.findpet.sign.R;
+import com.zcj.findpet.sign.R2;
+import com.zcj.ui.custom.TitleBar;
+
+import butterknife.BindView;
 
 /**
  * Created by zcj on 2018/4/7 1:08
  */
 @Route(path = "/sign/signInFragment")
 public class SignInDelegate extends AwesomeDelegate implements InContract.View {
+
+    @BindView(R2.id.title_bar)
+    TitleBar mTitleBar;
 
     private InContract.Presenter mPresenter;
 
@@ -27,6 +34,11 @@ public class SignInDelegate extends AwesomeDelegate implements InContract.View {
     public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
         mPresenter = new InPresenter(getContext(), this);
         mPresenter.start();
+    }
+
+    @Override
+    public void setTitle(String title) {
+        mTitleBar.setTitle(title);
     }
 
     @Override

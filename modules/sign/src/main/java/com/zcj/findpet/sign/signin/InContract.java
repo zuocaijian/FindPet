@@ -11,6 +11,7 @@ import com.zcj.findpet.core.base.mvp.BaseView;
 interface InContract {
 
     interface View extends BaseView<Presenter> {
+        void setTitle(String title);
     }
 
     interface Presenter extends BasePresenter<View> {

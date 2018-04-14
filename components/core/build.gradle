@@ -42,6 +42,9 @@ dependencies {
     api project(':share')
     api project(':hybird')
     api project(':image')
+    implementation project(':awesome-annotaions')
+    //自定义微信支付生成类注解编译器
+    annotationProcessor project(':awesome-compiler')
 
     //multidex
     api 'com.android.support:multidex:1.0.2'

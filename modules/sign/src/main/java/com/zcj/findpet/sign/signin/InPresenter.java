@@ -21,6 +21,6 @@ class InPresenter implements InContract.Presenter {
 
     @Override
     public void start() {
-
+        mView.setTitle("得宠");
     }
 }

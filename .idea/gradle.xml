@@ -9,6 +9,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/awesome-annotaions" />
+            <option value="$PROJECT_DIR$/awesome-compiler" />
             <option value="$PROJECT_DIR$/common/hybird" />
             <option value="$PROJECT_DIR$/common/image" />
             <option value="$PROJECT_DIR$/common/net" />
@@ -19,6 +21,7 @@
             <option value="$PROJECT_DIR$/components/core" />
             <option value="$PROJECT_DIR$/modules/frame" />
             <option value="$PROJECT_DIR$/modules/main" />
+            <option value="$PROJECT_DIR$/modules/pay" />
             <option value="$PROJECT_DIR$/modules/personal" />
             <option value="$PROJECT_DIR$/modules/sign" />
             <option value="$PROJECT_DIR$/modules/splash" />

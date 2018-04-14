@@ -2,7 +2,6 @@
     package="com.zcj.findpet.frame">
 
     <application>
-        <activity android:name=".MainActivity">
-        </activity>
+        <activity android:name=".MainActivity" />
     </application>
 </manifest>

@@ -7,43 +7,46 @@ ext {
     //公共ui库 版本号
     uiVersionCode = 1
     uiVersionName = "0.1.0"
-	//公共网络库 版本号
-	netVersionCode = 1
-	netVersionName = "0.1.0"
-	//公共图片加载库 版本号
-	imageVersionCode = 1
-	imageVersionName = "0.1.0"
-	//公共工具库 版本号
-	utilVersionCode = 1
-	utilVersionName = "0.1.0"
-	//公共埋点统计库 版本号
-	traceVersionCode = 1
-	traceVersionName = "0.1.0"
-	//公共社会化分享库 版本号
-	shareVersionCode = 1
-	shareVersionName = "0.1.0"
-	//公共混合开发库 版本号
-	hybirdVersionCode = 1
-	hybirdVersionName = "0.1.0"
-	
-	//core 版本号
-	coreVersionCode = 1
-	coreVersionName = "0.1.0"
-	//main 版本号
-	mainVersionCode = 1
-	mainVersionName = "0.1.0"
-	//splash 版本号
-	splashVersionCode = 1
-	splashVersionName = "0.1.0"
-	//登录注册 版本号
-	signVersionCode = 1
-	signVersionName = "0.1.0"
+    //公共网络库 版本号
+    netVersionCode = 1
+    netVersionName = "0.1.0"
+    //公共图片加载库 版本号
+    imageVersionCode = 1
+    imageVersionName = "0.1.0"
+    //公共工具库 版本号
+    utilVersionCode = 1
+    utilVersionName = "0.1.0"
+    //公共埋点统计库 版本号
+    traceVersionCode = 1
+    traceVersionName = "0.1.0"
+    //公共社会化分享库 版本号
+    shareVersionCode = 1
+    shareVersionName = "0.1.0"
+    //公共混合开发库 版本号
+    hybirdVersionCode = 1
+    hybirdVersionName = "0.1.0"
+
+    //core 版本号
+    coreVersionCode = 1
+    coreVersionName = "0.1.0"
+    //main 版本号
+    mainVersionCode = 1
+    mainVersionName = "0.1.0"
+    //splash 版本号
+    splashVersionCode = 1
+    splashVersionName = "0.1.0"
+    //登录注册 版本号
+    signVersionCode = 1
+    signVersionName = "0.1.0"
     //frame 版本号
     frameVersionCode = 1
     frameVersionName = "0.1.0"
-	//个人中心 版本号
+    //个人中心 版本号
     personalVersionCode = 1
     personalVersionName = "0.1.0"
+    //支付充值 版本号
+    payVersionCode = 1
+    payVersionName = "0.1.0"
 
     //公共版本号
     compileSdkVersion = 27
@@ -59,12 +62,12 @@ buildscript {
     repositories {
         google()
         jcenter()
-		mavenCentral()
+        mavenCentral()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.1'
-		//butterknife plugin
-		classpath "com.jakewharton:butterknife-gradle-plugin:${BUTTERKNIFE_GRADLE_PLUGIN_VERSION}"
+        //butterknife plugin
+        classpath "com.jakewharton:butterknife-gradle-plugin:${BUTTERKNIFE_GRADLE_PLUGIN_VERSION}"
     }
 }
 
