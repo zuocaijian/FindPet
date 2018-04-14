@@ -2,7 +2,7 @@ package com.zcj.findpet.main;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.zcj.findpet.core.base.BaseApp;
-import com.zcj.findpet.core.service.IModuleInitService;
+import com.zcj.findpet.core.service.IModuleLifeService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,28 +12,28 @@ import java.util.List;
  */
 public class MainApp extends BaseApp {
 
-    private final List<IModuleInitService> MODULE_INIT_SERVICES = new ArrayList<>();
+    private final List<IModuleLifeService> MODULE_INIT_SERVICES = new ArrayList<>();
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-        IModuleInitService frameModuleService = (IModuleInitService) ARouter.getInstance().build("/frame/module").navigation();
+        IModuleLifeService frameModuleService = (IModuleLifeService) ARouter.getInstance().build("/frame/module").navigation();
         MODULE_INIT_SERVICES.add(frameModuleService);
-        IModuleInitService personalModuleService = (IModuleInitService) ARouter.getInstance().build("/personal/module").navigation();
+        IModuleLifeService personalModuleService = (IModuleLifeService) ARouter.getInstance().build("/personal/module").navigation();
         MODULE_INIT_SERVICES.add(personalModuleService);
-        IModuleInitService signModuleService = (IModuleInitService) ARouter.getInstance().build("/sign/module").navigation();
+        IModuleLifeService signModuleService = (IModuleLifeService) ARouter.getInstance().build("/sign/module").navigation();
         MODULE_INIT_SERVICES.add(signModuleService);
-        IModuleInitService splashModuleService = (IModuleInitService) ARouter.getInstance().build("/splash/module").navigation();
+        IModuleLifeService splashModuleService = (IModuleLifeService) ARouter.getInstance().build("/splash/module").navigation();
         MODULE_INIT_SERVICES.add(splashModuleService);
-        IModuleInitService payModuleService = (IModuleInitService) ARouter.getInstance().build("/pay/module").navigation();
+        IModuleLifeService payModuleService = (IModuleLifeService) ARouter.getInstance().build("/pay/module").navigation();
         MODULE_INIT_SERVICES.add(payModuleService);
 
         initModules();
     }
 
     private void initModules() {
-        for (IModuleInitService moduleInitService : MODULE_INIT_SERVICES) {
+        for (IModuleLifeService moduleInitService : MODULE_INIT_SERVICES) {
             if (moduleInitService != null) {
                 moduleInitService.onAppCreate(this);
             }

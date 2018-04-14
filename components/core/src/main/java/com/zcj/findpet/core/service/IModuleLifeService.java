@@ -7,6 +7,6 @@ import com.alibaba.android.arouter.facade.template.IProvider;
 /**
  * Created by zcj on 2018/4/6 10:05
  */
-public interface IModuleInitService extends IProvider{
+public interface IModuleLifeService extends IProvider{
     void onAppCreate(Application app);
 }

@@ -4,7 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.zcj.findpet.core.service.IModuleInitService;
+import com.zcj.findpet.core.service.IModuleLifeService;
 
 /**
  * Datetime: 2018/4/11 15:29
@@ -12,7 +12,8 @@ import com.zcj.findpet.core.service.IModuleInitService;
  */
 
 @Route(path = "/sign/module")
-public class SignModule implements IModuleInitService {
+public class SignModule implements IModuleLifeService {
+
     @Override
     public void onAppCreate(Application app) {
     }
