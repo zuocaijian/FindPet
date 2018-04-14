@@ -7,6 +7,7 @@ import android.widget.TextView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.joanzapata.iconify.widget.IconTextView;
 import com.zcj.findpet.core.base.BaseFragment;
+import com.zcj.ui.util.ResUtils;
 
 
 /**
@@ -53,7 +54,7 @@ public class MainFragment extends BaseFragment {
 
         if (!TextUtils.isEmpty(mPos)) {
             mTv.setText(mPos);
-            mITv.setText(getResources().getString(R.string.icon_font, "fa-coffee"));
+            mITv.setText(ResUtils.getString(mContext, R.string.icon_font, "fa-coffee"));
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.zcj.findpet.sign.signin;
+package com.zcj.findpet.sign.signup.haspet;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,51 +6,33 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.zcj.findpet.core.app.Awesome;
 import com.zcj.findpet.core.delegate.AwesomeDelegate;
+import com.zcj.findpet.core.views.TitleBar;
 import com.zcj.findpet.sign.R;
-import com.zcj.ui.custom.CommonTitleBar;
 
 import butterknife.BindView;
-import butterknife.OnClick;
-import me.yokeyword.fragmentation.ISupportFragment;
 
 import com.zcj.findpet.sign.R2;
 
 /**
- * Created by zcj on 2018/4/7 1:08
+ * Created by zcj on 2018/4/14 17:23
  */
-@Route(path = "/sign/signInFragment")
-public class SignInDelegate extends AwesomeDelegate implements InContract.View {
+@Route(path = "/sign/signUpHasPetFragment")
+public class SignUpHasPetDelegate extends AwesomeDelegate implements HasPetContract.View {
 
     @BindView(R2.id.title_bar)
     //@BindView(R.id.title_bar)
-    CommonTitleBar mTitleBar;
-
-    private InContract.Presenter mPresenter;
-
-    @OnClick(R2.id.tv_sign_in)
-    //@OnClick(R.id.tv_sign_in)
-    void signInAction() {
-        getProxyActivity().finish();
-    }
-
-    @OnClick(R2.id.tv_sign_up)
-    //@OnClick(R.id.tv_sign_up)
-    void signUpAction() {
-        start((ISupportFragment) ARouter.getInstance().build("/sign/chooseSignUpTypeFragment").navigation());
-    }
+    TitleBar mTitleBar;
 
     @Override
     public Object setLayout() {
-        return R.layout.delegate_sign_in;
+        return R.layout.delegate_sign_up_has_pet;
     }
 
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
-        mPresenter = new InPresenter(getContext(), this);
-        mPresenter.start();
+
     }
 
     @Override
@@ -60,10 +42,12 @@ public class SignInDelegate extends AwesomeDelegate implements InContract.View {
 
     @Override
     public void showLoading() {
+
     }
 
     @Override
     public void hideLoading() {
+
     }
 
     @Override

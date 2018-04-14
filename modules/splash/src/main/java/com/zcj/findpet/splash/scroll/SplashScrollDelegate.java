@@ -16,8 +16,6 @@ import com.zcj.findpet.core.delegate.AwesomeDelegate;
 
 import java.util.List;
 
-import me.yokeyword.fragmentation.ISupportFragment;
-
 /**
  * Created by zcj on 2018/4/6 23:02
  */
@@ -71,12 +69,6 @@ public class SplashScrollDelegate extends AwesomeDelegate implements ScrollContr
                 .setOnItemClickListener(this)
                 .setOnPageChangeListener(this)
                 .setCanLoop(canLoop);
-    }
-
-    @Override
-    public void goSignIn() {
-        // TODO: 2018/4/8 测试
-        startWithPop((ISupportFragment) ARouter.getInstance().build("/sign/signUpFragment").navigation());
     }
 
     @Override

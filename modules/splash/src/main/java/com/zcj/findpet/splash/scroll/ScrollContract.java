@@ -22,8 +22,6 @@ interface ScrollContract extends BaseContract<ScrollContract.Presenter, ScrollCo
                             ConvenientBanner.PageIndicatorAlign align,
                             boolean canLoop);
 
-        void goSignIn();
-
         void goMain();
     }
 
@@ -34,8 +32,6 @@ interface ScrollContract extends BaseContract<ScrollContract.Presenter, ScrollCo
     }
 
     interface Model extends BaseModel {
-        boolean isSignIn();
-
         void setIsFirstLauncher(boolean isFirst);
     }
 }

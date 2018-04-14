@@ -45,11 +45,7 @@ class ScrollPresenter implements ScrollContract.Presenter {
     public void itemClick(int position) {
         //如果点击最后一个
         if (position == INTEGERS.size() - 1) {
-            if (mModel.isSignIn()) {
-                mView.goMain();
-            } else {
-                mView.goSignIn();
-            }
+            mView.goMain();
         }
     }
 

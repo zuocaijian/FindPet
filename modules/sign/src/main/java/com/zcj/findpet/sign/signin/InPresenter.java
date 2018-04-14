@@ -2,6 +2,8 @@ package com.zcj.findpet.sign.signin;
 
 import android.content.Context;
 
+import com.zcj.ui.util.ResUtils;
+
 /**
  * Datetime: 2018/4/8 15:06
  * Author: zcj
@@ -21,6 +23,6 @@ class InPresenter implements InContract.Presenter {
 
     @Override
     public void start() {
-        mView.setTitle("得宠");
+        mView.setTitle(ResUtils.getString(mContext, com.zcj.findpet.core.R.string.core_app_name));
     }
 }

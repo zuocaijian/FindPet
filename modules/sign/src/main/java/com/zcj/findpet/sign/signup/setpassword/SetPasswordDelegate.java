@@ -1,4 +1,4 @@
-package com.zcj.findpet.sign.signin;
+package com.zcj.findpet.sign.signup.setpassword;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,50 +6,34 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.zcj.findpet.core.app.Awesome;
 import com.zcj.findpet.core.delegate.AwesomeDelegate;
+import com.zcj.findpet.core.views.TitleBar;
 import com.zcj.findpet.sign.R;
-import com.zcj.ui.custom.CommonTitleBar;
-
-import butterknife.BindView;
-import butterknife.OnClick;
-import me.yokeyword.fragmentation.ISupportFragment;
-
 import com.zcj.findpet.sign.R2;
 
+import butterknife.BindView;
+
 /**
- * Created by zcj on 2018/4/7 1:08
+ * Created by zcj on 2018/4/14 18:47
  */
-@Route(path = "/sign/signInFragment")
-public class SignInDelegate extends AwesomeDelegate implements InContract.View {
+@Route(path = "/sign/setPasswordFragment")
+public class SetPasswordDelegate extends AwesomeDelegate implements PasswordContract.View {
 
     @BindView(R2.id.title_bar)
     //@BindView(R.id.title_bar)
-    CommonTitleBar mTitleBar;
+    TitleBar mTitleBar;
 
-    private InContract.Presenter mPresenter;
-
-    @OnClick(R2.id.tv_sign_in)
-    //@OnClick(R.id.tv_sign_in)
-    void signInAction() {
-        getProxyActivity().finish();
-    }
-
-    @OnClick(R2.id.tv_sign_up)
-    //@OnClick(R.id.tv_sign_up)
-    void signUpAction() {
-        start((ISupportFragment) ARouter.getInstance().build("/sign/chooseSignUpTypeFragment").navigation());
-    }
+    private PasswordContract.Presenter mPresenter;
 
     @Override
     public Object setLayout() {
-        return R.layout.delegate_sign_in;
+        return R.layout.delegate_set_password;
     }
 
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
-        mPresenter = new InPresenter(getContext(), this);
+        mPresenter = new PasswordPresenter(getContext(), this);
         mPresenter.start();
     }
 
@@ -60,10 +44,12 @@ public class SignInDelegate extends AwesomeDelegate implements InContract.View {
 
     @Override
     public void showLoading() {
+
     }
 
     @Override
     public void hideLoading() {
+
     }
 
     @Override

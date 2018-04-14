@@ -142,11 +142,7 @@ class CountdownPresenter implements CountdownContract.Presenter, ITimerListener 
         if (mModel.isFirstLauncherApp()) {
             mView.goScroll();
         } else {
-            if (mModel.isSignIn()) {
-                mView.goMain();
-            } else {
-                mView.goSignIn();
-            }
+            mView.goMain();
         }
     }
 }

@@ -25,8 +25,6 @@ interface CountdownContract extends BaseContract<CountdownContract.Presenter, Co
 
         void goScroll();
 
-        void goSignIn();
-
         void goMain();
     }
 
@@ -42,8 +40,6 @@ interface CountdownContract extends BaseContract<CountdownContract.Presenter, Co
     }
 
     interface Model extends BaseModel {
-        boolean isSignIn();
-
         boolean isFirstLauncherApp();
 
         // TODO: 2018/4/8 测试

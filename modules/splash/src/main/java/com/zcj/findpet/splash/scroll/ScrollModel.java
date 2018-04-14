@@ -10,11 +10,6 @@ import com.zcj.ui.launcher.ScrollLauncherTag;
 class ScrollModel implements ScrollContract.Model {
 
     @Override
-    public boolean isSignIn() {
-        return false;
-    }
-
-    @Override
     public void setIsFirstLauncher(boolean isFirst) {
         AwesomePreference.setAppFlag(ScrollLauncherTag.HAS_FIRST_LAUNCHER_APP.name(), !isFirst);
     }

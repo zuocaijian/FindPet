@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationViewPager;
@@ -52,13 +53,13 @@ public class MainActivity extends BaseActivity {
         mBottomItems.clear();
         mFragments.clear();
         for (int i = 0; i < 4; i++) {
-            item = new AHBottomNavigationItem("" + i, R.drawable.ic_content_add, R.color.theme_color);
+            item = new AHBottomNavigationItem("" + i, R.drawable.ic_content_add, R.color.core_theme_color);
             mBottomItems.add(item);
             mFragments.add(MainFragment.newInstance(i));
         }
 
         mBottomNavigation.addItems(mBottomItems);
-        mBottomNavigation.setDefaultBackgroundColor(mContext.getResources().getColor(R.color.white));
+        mBottomNavigation.setDefaultBackgroundColor(mContext.getResources().getColor(R.color.core_white));
         mBottomNavigation.setOnTabSelectedListener(new MainTabSelectedListener());
         mBottomNavigation.setBehaviorTranslationEnabled(true);
 
@@ -70,8 +71,16 @@ public class MainActivity extends BaseActivity {
 
         @Override
         public boolean onTabSelected(int position, boolean wasSelected) {
-            mMainViewPager.setCurrentItem(position, false);
-            return true;
+            if (position == mBottomItems.size() - 1) {
+                ARouter.getInstance()
+                        .build("/main/mainActivity")
+                        .withString("target", "/sign/signInFragment")
+                        .navigation();
+                return false;
+            } else {
+                mMainViewPager.setCurrentItem(position, false);
+                return true;
+            }
         }
     }
 }

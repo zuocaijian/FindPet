@@ -1,7 +1,6 @@
 package com.zcj.findpet.splash.countdown;
 
 import android.os.Bundle;
-import android.os.Trace;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
@@ -17,7 +16,6 @@ import com.zcj.findpet.splash.scroll.SplashScrollDelegate;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import me.yokeyword.fragmentation.ISupportFragment;
 
 /**
  * Created by zcj on 2018/4/6 9:42
@@ -27,12 +25,12 @@ public class SplashCountdownDelegate extends AwesomeDelegate implements Countdow
 
     @BindView(R2.id.tv_launcher_timer)
     //@BindView(R.id.tv_launcher_timer)
-    AppCompatTextView mTvTimer;
+            AppCompatTextView mTvTimer;
 
     private CountdownContract.Presenter mPresenter;
 
     @OnClick(R2.id.tv_launcher_timer)
-    //@OnClick(R.id.tv_launcher_timer)
+        //@OnClick(R.id.tv_launcher_timer)
     void timerAction() {
         mPresenter.terminateCountDown();
     }
@@ -64,14 +62,9 @@ public class SplashCountdownDelegate extends AwesomeDelegate implements Countdow
     }
 
     @Override
-    public void goSignIn() {
-        // TODO: 2018/4/8 测试
-        startWithPop((ISupportFragment) ARouter.getInstance().build("/sign/signUpFragment").navigation());
-    }
-
-    @Override
     public void goMain() {
         ARouter.getInstance().build("/frame/mainActivity").navigation();
+        getProxyActivity().finish();
     }
 
     @Override

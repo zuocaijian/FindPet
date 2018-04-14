@@ -25,11 +25,6 @@ import io.reactivex.schedulers.Schedulers;
 class CountdownModel implements CountdownContract.Model {
 
     @Override
-    public boolean isSignIn() {
-        return false;
-    }
-
-    @Override
     public boolean isFirstLauncherApp() {
         return !AwesomePreference.getAppFlag(ScrollLauncherTag.HAS_FIRST_LAUNCHER_APP.name());
     }

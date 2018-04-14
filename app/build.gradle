@@ -53,5 +53,6 @@ dependencies {
         implementation project(':frame')
         implementation project(':splash')
         implementation project(':sign')
+        implementation project(':pay')
     }
 }

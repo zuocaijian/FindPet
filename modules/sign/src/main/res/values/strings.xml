@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Sign</string>
+    <string name="sign_app_name">Sign</string>
+    <string name="sign_login_app">登录得宠</string>
 </resources>
