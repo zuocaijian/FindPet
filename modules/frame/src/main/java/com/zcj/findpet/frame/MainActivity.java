@@ -64,7 +64,7 @@ public class MainActivity extends BaseActivity {
         mBottomItems.clear();
         mFragments.clear();
         for (int i = 0; i < 4; i++) {
-            item = new AHBottomNavigationItem(mBottomNavTitles[i], mBottomNavDrawables[i], R.color.core_theme_color);
+            item = new AHBottomNavigationItem(mBottomNavTitles[i], mBottomNavDrawables[i]);
             mBottomItems.add(item);
             mFragments.add(MainFragment.newInstance(i));
         }
@@ -73,6 +73,8 @@ public class MainActivity extends BaseActivity {
         mBottomNavigation.setDefaultBackgroundColor(mContext.getResources().getColor(R.color.core_white));
         mBottomNavigation.setOnTabSelectedListener(new MainTabSelectedListener());
         mBottomNavigation.setBehaviorTranslationEnabled(true);
+        mBottomNavigation.setTitleState(AHBottomNavigation.TitleState.ALWAYS_SHOW);
+        mBottomNavigation.setAccentColor(ResUtils.getColor(mContext, R.color.core_theme_color));
 
         mAdapter = new MainViewPagerAdapter(getSupportFragmentManager(), mFragments);
         mMainViewPager.setAdapter(mAdapter);
