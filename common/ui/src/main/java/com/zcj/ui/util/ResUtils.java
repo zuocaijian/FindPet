@@ -1,6 +1,7 @@
 package com.zcj.ui.util;
 
 import android.content.Context;
+import android.support.annotation.ArrayRes;
 import android.support.annotation.ColorRes;
 import android.support.annotation.StringRes;
 
@@ -19,5 +20,9 @@ public class ResUtils {
 
     public static String getString(Context context, @StringRes int stringResId, Object... formatArgs) {
         return context.getResources().getString(stringResId, formatArgs);
+    }
+
+    public static String[] getStringArr(Context context, @ArrayRes int stringArrResId) {
+        return context.getResources().getStringArray(stringArrResId);
     }
 }

@@ -10,6 +10,7 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationViewPager;
 import com.zcj.findpet.core.base.BaseActivity;
 import com.zcj.findpet.core.base.BaseFragment;
+import com.zcj.ui.util.ResUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +30,9 @@ public class MainActivity extends BaseActivity {
     private List<AHBottomNavigationItem> mBottomItems = new ArrayList<>();
     private List<BaseFragment> mFragments = new ArrayList<>();
 
+    private String[] mBottomNavTitles;
+    private int[] mBottomNavDrawables;
+
     @Override
     public int initViewId() {
         return R.layout.activity_main;
@@ -44,6 +48,13 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void process(Bundle savedInstanceState) {
+        mBottomNavTitles = ResUtils.getStringArr(mContext, R.array.frame_bottom_nav_title);
+        mBottomNavDrawables = new int[]{
+                R.drawable.frame_star,
+                R.drawable.frame_search,
+                R.drawable.frame_love,
+                R.drawable.frame_me
+        };
         initBottomNavigation();
     }
 
@@ -53,7 +64,7 @@ public class MainActivity extends BaseActivity {
         mBottomItems.clear();
         mFragments.clear();
         for (int i = 0; i < 4; i++) {
-            item = new AHBottomNavigationItem("" + i, R.drawable.ic_content_add, R.color.core_theme_color);
+            item = new AHBottomNavigationItem(mBottomNavTitles[i], mBottomNavDrawables[i], R.color.core_theme_color);
             mBottomItems.add(item);
             mFragments.add(MainFragment.newInstance(i));
         }
