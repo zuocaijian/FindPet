@@ -54,7 +54,7 @@ public class MainFragment extends BaseFragment {
 
         if (!TextUtils.isEmpty(mPos)) {
             mTv.setText(mPos);
-            mITv.setText(ResUtils.getString(mContext, R.string.icon_font, "fa-coffee"));
+            mITv.setText(ResUtils.getString(mContext, R.string.frame_icon_font, "fa-coffee"));
         }
     }
 }

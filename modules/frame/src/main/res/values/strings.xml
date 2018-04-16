@@ -1,4 +1,5 @@
 <resources>
-    <string name="test">just for test.</string>
-    <string name="icon_font">{%1$s}</string>
+    <string name="frame_app_name">Frame</string>
+    <string name="frame_test">just for test.</string>
+    <string name="frame_icon_font">{%1$s}</string>
 </resources>
