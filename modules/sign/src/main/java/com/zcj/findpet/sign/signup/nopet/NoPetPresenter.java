@@ -1,6 +1,9 @@
 package com.zcj.findpet.sign.signup.nopet;
 
+import android.arch.lifecycle.Lifecycle;
+import android.arch.lifecycle.LifecycleOwner;
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Patterns;
 
@@ -65,5 +68,33 @@ public class NoPetPresenter implements NoPetContract.Presenter {
     @Override
     public void start() {
         VIEW.setTitle(ResUtils.getString(CONTEXT, com.zcj.findpet.core.R.string.core_app_name));
+    }
+
+    @Override
+    public void onLifeCycleChanged(@NonNull LifecycleOwner owner, @NonNull Lifecycle.Event event) {
+    }
+
+    @Override
+    public void onCreate(@NonNull LifecycleOwner owner) {
+    }
+
+    @Override
+    public void onStart(@NonNull LifecycleOwner owner) {
+    }
+
+    @Override
+    public void onResume(@NonNull LifecycleOwner owner) {
+    }
+
+    @Override
+    public void onPause(@NonNull LifecycleOwner owner) {
+    }
+
+    @Override
+    public void onStop(@NonNull LifecycleOwner owner) {
+    }
+
+    @Override
+    public void onDestroy(@NonNull LifecycleOwner owner) {
     }
 }

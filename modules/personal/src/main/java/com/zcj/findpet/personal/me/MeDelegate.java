@@ -45,6 +45,7 @@ public class MeDelegate extends AwesomeDelegate implements MeContract.View {
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
         mPresenter = new MePresenter(getContext(), this);
+        getLifecycle().addObserver(mPresenter);
         mPresenter.start();
     }
 

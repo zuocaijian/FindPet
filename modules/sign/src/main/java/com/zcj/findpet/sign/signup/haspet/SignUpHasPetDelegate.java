@@ -10,10 +10,9 @@ import com.zcj.findpet.core.app.Awesome;
 import com.zcj.findpet.core.delegate.AwesomeDelegate;
 import com.zcj.findpet.core.views.TitleBar;
 import com.zcj.findpet.sign.R;
+import com.zcj.findpet.sign.R2;
 
 import butterknife.BindView;
-
-import com.zcj.findpet.sign.R2;
 
 /**
  * Created by zcj on 2018/4/14 17:23
@@ -23,7 +22,9 @@ public class SignUpHasPetDelegate extends AwesomeDelegate implements HasPetContr
 
     @BindView(R2.id.title_bar)
     //@BindView(R.id.title_bar)
-    TitleBar mTitleBar;
+            TitleBar mTitleBar;
+
+    private HasPetContract.Presenter mPresenter;
 
     @Override
     public Object setLayout() {
@@ -32,7 +33,9 @@ public class SignUpHasPetDelegate extends AwesomeDelegate implements HasPetContr
 
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
-
+        mPresenter = new HasPetPresenter(getContext(), this);
+        getLifecycle().addObserver(mPresenter);
+        mPresenter.start();
     }
 
     @Override

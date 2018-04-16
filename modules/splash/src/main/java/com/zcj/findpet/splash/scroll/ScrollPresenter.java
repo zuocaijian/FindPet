@@ -1,6 +1,9 @@
 package com.zcj.findpet.splash.scroll;
 
+import android.arch.lifecycle.Lifecycle;
+import android.arch.lifecycle.LifecycleOwner;
 import android.content.Context;
+import android.support.annotation.NonNull;
 
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.zcj.findpet.splash.R;
@@ -14,16 +17,16 @@ import java.util.ArrayList;
  */
 class ScrollPresenter implements ScrollContract.Presenter {
 
-    private ScrollContract.View mView;
-    private ScrollContract.Model mModel;
+    private final ScrollContract.View VIEW;
+    private final ScrollContract.Model MODEL;
 
-    private final Context mContext;
+    private final Context CONTEXT;
     private final ArrayList<Integer> INTEGERS = new ArrayList<>();
 
     public ScrollPresenter(Context context, ScrollContract.View view) {
-        this.mContext = context;
-        this.mView = view;
-        mModel = new ScrollModel();
+        this.CONTEXT = context;
+        this.VIEW = view;
+        MODEL = new ScrollModel();
     }
 
     @Override
@@ -35,7 +38,7 @@ class ScrollPresenter implements ScrollContract.Presenter {
         INTEGERS.add(R.drawable.launcher_04);
         INTEGERS.add(R.drawable.launcher_05);
 
-        mView.setScrollPages(new LauncherHolderCreator(), INTEGERS,
+        VIEW.setScrollPages(new LauncherHolderCreator(), INTEGERS,
                 new int[]{R.drawable.dot_normal, R.drawable.dot_focus},
                 ConvenientBanner.PageIndicatorAlign.CENTER_HORIZONTAL,
                 false);
@@ -45,14 +48,42 @@ class ScrollPresenter implements ScrollContract.Presenter {
     public void itemClick(int position) {
         //如果点击最后一个
         if (position == INTEGERS.size() - 1) {
-            mView.goMain();
+            VIEW.goMain();
         }
     }
 
     @Override
     public void pageSelected(int position) {
         if (position == INTEGERS.size() - 1) {
-            mModel.setIsFirstLauncher(false);
+            MODEL.setIsFirstLauncher(false);
         }
+    }
+
+    @Override
+    public void onLifeCycleChanged(@NonNull LifecycleOwner owner, @NonNull Lifecycle.Event event) {
+    }
+
+    @Override
+    public void onCreate(@NonNull LifecycleOwner owner) {
+    }
+
+    @Override
+    public void onStart(@NonNull LifecycleOwner owner) {
+    }
+
+    @Override
+    public void onResume(@NonNull LifecycleOwner owner) {
+    }
+
+    @Override
+    public void onPause(@NonNull LifecycleOwner owner) {
+    }
+
+    @Override
+    public void onStop(@NonNull LifecycleOwner owner) {
+    }
+
+    @Override
+    public void onDestroy(@NonNull LifecycleOwner owner) {
     }
 }

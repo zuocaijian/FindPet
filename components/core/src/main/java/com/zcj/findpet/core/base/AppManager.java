@@ -10,25 +10,36 @@ import java.util.Stack;
 
 public class AppManager {
 
-    private Stack<Activity> mStack;
+    private final Stack<Activity> STACK;
 
     private AppManager() {
-        mStack = new Stack<>();
+        STACK = new Stack<>();
     }
 
     public static AppManager getInstance() {
-        return InstanceHolder.sHolder;
+        return InstanceHolder.HOLDER;
     }
 
-    public void push(Activity activity){
-        mStack.add(activity);
+    public void push(Activity activity) {
+        STACK.add(activity);
     }
 
-    public Activity pop(){
-        return mStack.pop();
+    public Activity pop() {
+        return STACK.pop();
+    }
+
+    public void pop(Activity activity) {
+        if (!isEmpty()) {
+            STACK.remove(activity);
+            activity.finish();
+        }
+    }
+
+    public boolean isEmpty() {
+        return STACK == null || STACK.isEmpty();
     }
 
     private static class InstanceHolder {
-        public static AppManager sHolder = new AppManager();
+        public static final AppManager HOLDER = new AppManager();
     }
 }

@@ -1,6 +1,9 @@
 package com.zcj.findpet.personal.me;
 
+import android.arch.lifecycle.Lifecycle;
+import android.arch.lifecycle.LifecycleOwner;
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.widget.ImageView;
 
 import com.zcj.image.ImageLoader;
@@ -112,5 +115,33 @@ public class MePresenter implements MeContract.Presenter {
             }
             mClickDisposable = null;
         }
+    }
+
+    @Override
+    public void onLifeCycleChanged(@NonNull LifecycleOwner owner, @NonNull Lifecycle.Event event) {
+    }
+
+    @Override
+    public void onCreate(@NonNull LifecycleOwner owner) {
+    }
+
+    @Override
+    public void onStart(@NonNull LifecycleOwner owner) {
+    }
+
+    @Override
+    public void onResume(@NonNull LifecycleOwner owner) {
+    }
+
+    @Override
+    public void onPause(@NonNull LifecycleOwner owner) {
+    }
+
+    @Override
+    public void onStop(@NonNull LifecycleOwner owner) {
+    }
+
+    @Override
+    public void onDestroy(@NonNull LifecycleOwner owner) {
     }
 }

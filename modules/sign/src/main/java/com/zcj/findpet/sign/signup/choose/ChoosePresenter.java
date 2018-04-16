@@ -1,6 +1,9 @@
 package com.zcj.findpet.sign.signup.choose;
 
+import android.arch.lifecycle.Lifecycle;
+import android.arch.lifecycle.LifecycleOwner;
 import android.content.Context;
+import android.support.annotation.NonNull;
 
 import com.zcj.ui.util.ResUtils;
 
@@ -9,7 +12,7 @@ import com.zcj.ui.util.ResUtils;
  */
 public class ChoosePresenter implements ChooseContract.Presenter {
 
-    private ChooseContract.View VIEW;
+    private final ChooseContract.View VIEW;
 
     private final Context CONTEXT;
 
@@ -21,5 +24,33 @@ public class ChoosePresenter implements ChooseContract.Presenter {
     @Override
     public void start() {
         VIEW.setTitle(ResUtils.getString(CONTEXT, com.zcj.findpet.core.R.string.core_app_name));
+    }
+
+    @Override
+    public void onLifeCycleChanged(@NonNull LifecycleOwner owner, @NonNull Lifecycle.Event event) {
+    }
+
+    @Override
+    public void onCreate(@NonNull LifecycleOwner owner) {
+    }
+
+    @Override
+    public void onStart(@NonNull LifecycleOwner owner) {
+    }
+
+    @Override
+    public void onResume(@NonNull LifecycleOwner owner) {
+    }
+
+    @Override
+    public void onPause(@NonNull LifecycleOwner owner) {
+    }
+
+    @Override
+    public void onStop(@NonNull LifecycleOwner owner) {
+    }
+
+    @Override
+    public void onDestroy(@NonNull LifecycleOwner owner) {
     }
 }

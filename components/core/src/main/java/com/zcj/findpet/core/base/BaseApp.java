@@ -1,7 +1,9 @@
 package com.zcj.findpet.core.base;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.os.Bundle;
 import android.support.multidex.MultiDex;
 
 import com.alibaba.android.arouter.launcher.ARouter;
@@ -32,6 +34,7 @@ public class BaseApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        registerActivityLifecycleCallbacks(new ActivityLifeCycleHandler());
         Awesome.init(this)
                 .withIcon(new FontAwesomeModule())
                 .withApiHost("http://127.0.0.1/")
@@ -50,5 +53,43 @@ public class BaseApp extends Application {
         //必须在使用网络框架前对网络框架初始化
         RestCreator.init(Awesome.getApplicationContext(), (String) Awesome.getConfiguration(ConfigKeys.API_HOST),
                 (List<BaseInterceptor>) Awesome.getConfiguration(ConfigKeys.INTERCEPTORS));
+    }
+
+    private static class ActivityLifeCycleHandler implements ActivityLifecycleCallbacks {
+
+        @Override
+        public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
+            AppManager.getInstance().push(activity);
+        }
+
+        @Override
+        public void onActivityStarted(Activity activity) {
+
+        }
+
+        @Override
+        public void onActivityResumed(Activity activity) {
+
+        }
+
+        @Override
+        public void onActivityPaused(Activity activity) {
+
+        }
+
+        @Override
+        public void onActivityStopped(Activity activity) {
+
+        }
+
+        @Override
+        public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
+
+        }
+
+        @Override
+        public void onActivityDestroyed(Activity activity) {
+            AppManager.getInstance().pop(activity);
+        }
     }
 }

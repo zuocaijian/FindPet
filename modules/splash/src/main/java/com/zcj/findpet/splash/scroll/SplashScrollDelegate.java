@@ -36,6 +36,7 @@ public class SplashScrollDelegate extends AwesomeDelegate implements ScrollContr
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
         mPresenter = new ScrollPresenter(getContext(), this);
+        getLifecycle().addObserver(mPresenter);
         mPresenter.start();
     }
 

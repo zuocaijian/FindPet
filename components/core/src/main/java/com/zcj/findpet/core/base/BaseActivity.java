@@ -24,7 +24,6 @@ public abstract class BaseActivity extends SwipeBackActivity {
         setContentView(initViewId());
         ButterKnife.bind(this);
         mContext = this;
-        AppManager.getInstance().push(this);
         if (registerEventBus()) {
             EventBus.getDefault().register(mContext);
         }
@@ -38,7 +37,6 @@ public abstract class BaseActivity extends SwipeBackActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        AppManager.getInstance().pop();
         if (registerEventBus()) {
             EventBus.getDefault().unregister(mContext);
         }

@@ -43,6 +43,7 @@ public class SplashCountdownDelegate extends AwesomeDelegate implements Countdow
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
         mPresenter = new CountdownPresenter(getContext(), this);
+        getLifecycle().addObserver(mPresenter);
         mPresenter.start();
     }
 

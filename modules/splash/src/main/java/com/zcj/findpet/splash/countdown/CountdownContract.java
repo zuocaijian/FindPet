@@ -2,10 +2,10 @@ package com.zcj.findpet.splash.countdown;
 
 import android.content.Context;
 
-import com.zcj.findpet.core.base.mvp.BaseContract;
-import com.zcj.findpet.core.base.mvp.BaseModel;
-import com.zcj.findpet.core.base.mvp.BasePresenter;
-import com.zcj.findpet.core.base.mvp.BaseView;
+import com.zcj.findpet.core.mvp.BaseContract;
+import com.zcj.findpet.core.mvp.BaseModel;
+import com.zcj.findpet.core.mvp.BasePresenter;
+import com.zcj.findpet.core.mvp.BaseView;
 import com.zcj.net.callback.IError;
 import com.zcj.net.callback.IFailure;
 import com.zcj.net.callback.ISuccess;
@@ -18,16 +18,6 @@ import io.reactivex.Observer;
  */
 interface CountdownContract extends BaseContract<CountdownContract.Presenter, CountdownContract.View, CountdownContract.Model> {
 
-    interface View extends BaseView<Presenter> {
-        boolean isTvNull();
-
-        void updateCountdown(String countdown);
-
-        void goScroll();
-
-        void goMain();
-    }
-
     interface Presenter extends BasePresenter<View> {
         void terminateCountDown();
 
@@ -37,6 +27,16 @@ interface CountdownContract extends BaseContract<CountdownContract.Presenter, Co
         void testRxGet();
 
         void testRxRestClient();
+    }
+
+    interface View extends BaseView<Presenter> {
+        boolean isTvNull();
+
+        void updateCountdown(String countdown);
+
+        void goScroll();
+
+        void goMain();
     }
 
     interface Model extends BaseModel {

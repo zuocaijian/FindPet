@@ -2,18 +2,16 @@ package com.zcj.findpet.personal.me;
 
 import android.widget.ImageView;
 
-import com.zcj.findpet.core.base.mvp.BaseModel;
-import com.zcj.findpet.core.base.mvp.BasePresenter;
-import com.zcj.findpet.core.base.mvp.BaseView;
+import com.zcj.findpet.core.mvp.BaseContract;
+import com.zcj.findpet.core.mvp.BaseModel;
+import com.zcj.findpet.core.mvp.BasePresenter;
+import com.zcj.findpet.core.mvp.BaseView;
 
 /**
  * Datetime: 2018/4/10 9:53
  * Author: zcj
  */
-public interface MeContract {
-
-    interface View extends BaseView<Presenter> {
-    }
+public interface MeContract extends BaseContract<MeContract.Presenter, MeContract.View, MeContract.Model> {
 
     interface Presenter extends BasePresenter<View> {
         void testRx();
@@ -21,6 +19,9 @@ public interface MeContract {
         void loadImg(ImageView view);
 
         void release();
+    }
+
+    interface View extends BaseView<Presenter> {
     }
 
     interface Model extends BaseModel {

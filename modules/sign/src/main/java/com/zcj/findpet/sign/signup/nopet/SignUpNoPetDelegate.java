@@ -12,12 +12,11 @@ import com.zcj.findpet.core.app.Awesome;
 import com.zcj.findpet.core.delegate.AwesomeDelegate;
 import com.zcj.findpet.core.views.TitleBar;
 import com.zcj.findpet.sign.R;
+import com.zcj.findpet.sign.R2;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 import me.yokeyword.fragmentation.ISupportFragment;
-
-import com.zcj.findpet.sign.R2;
 
 /**
  * Created by zcj on 2018/4/14 17:23
@@ -27,36 +26,36 @@ public class SignUpNoPetDelegate extends AwesomeDelegate implements NoPetContrac
 
     @BindView(R2.id.title_bar)
     //@BindView(R.id.title_bar)
-    TitleBar mTitleBar;
+            TitleBar mTitleBar;
     @BindView(R2.id.et_nickname)
     //@BindView(R.id.et_nickname)
-    EditText mEtNickname;
+            EditText mEtNickname;
     @BindView(R2.id.et_phone)
     //@BindView(R.id.et_phone)
-    EditText mEtPhone;
+            EditText mEtPhone;
     @BindView(R2.id.et_captcha)
     //@BindView(R.id.et_captcha)
-    EditText mEtCaptcha;
+            EditText mEtCaptcha;
     @BindView(R2.id.et_email)
     //@BindView(R.id.et_email)
-    EditText mEtEmail;
+            EditText mEtEmail;
     @BindView(R2.id.et_pet_type)
     //@BindView(R.id.et_pet_type)
-    EditText mEtPetType;
+            EditText mEtPetType;
     @BindView(R2.id.et_pet_variety)
     //@BindView(R.id.et_pet_variety)
-    EditText mEtPetVariety;
+            EditText mEtPetVariety;
 
     private NoPetContract.Presenter mPresenter;
 
     @OnClick(R2.id.tv_sign_up)
-    //@OnClick(R.id.tv_sign_up)
+        //@OnClick(R.id.tv_sign_up)
     void signUpAction() {
         mPresenter.signUp();
     }
 
     @OnClick(R2.id.tv_sign_in)
-    //@OnClick(R.id.tv_sign_in)
+        //@OnClick(R.id.tv_sign_in)
     void signInAction() {
         startWithPopTo((ISupportFragment) ARouter.getInstance().build("/sign/signInFragment").navigation(),
                 ((ISupportFragment) ARouter.getInstance().build("/sign/signInFragment").navigation()).getClass(),
@@ -71,6 +70,7 @@ public class SignUpNoPetDelegate extends AwesomeDelegate implements NoPetContrac
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
         mPresenter = new NoPetPresenter(getContext(), this);
+        getLifecycle().addObserver(mPresenter);
         mPresenter.start();
     }
 
@@ -116,12 +116,10 @@ public class SignUpNoPetDelegate extends AwesomeDelegate implements NoPetContrac
 
     @Override
     public void showLoading() {
-
     }
 
     @Override
     public void hideLoading() {
-
     }
 
     @Override

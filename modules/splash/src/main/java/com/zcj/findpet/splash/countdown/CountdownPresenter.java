@@ -1,6 +1,9 @@
 package com.zcj.findpet.splash.countdown;
 
+import android.arch.lifecycle.Lifecycle;
+import android.arch.lifecycle.LifecycleOwner;
 import android.content.Context;
+import android.support.annotation.NonNull;
 
 import com.zcj.findpet.core.app.Awesome;
 import com.zcj.findpet.core.util.timer.BaseTimerTask;
@@ -21,18 +24,18 @@ import io.reactivex.disposables.Disposable;
  */
 class CountdownPresenter implements CountdownContract.Presenter, ITimerListener {
 
-    private CountdownContract.View mView;
-    private CountdownContract.Model mModel;
+    private final CountdownContract.View VIEW;
+    private final CountdownContract.Model MODEL;
 
-    private final Context mContext;
+    private final Context CONTEXT;
 
     private Timer mTimer = null;
     private int mCountDown = 5;
 
     public CountdownPresenter(Context context, CountdownContract.View view) {
-        this.mContext = context;
-        this.mView = view;
-        mModel = new CountdownModel();
+        this.CONTEXT = context;
+        this.VIEW = view;
+        MODEL = new CountdownModel();
     }
 
     @Override
@@ -46,70 +49,70 @@ class CountdownPresenter implements CountdownContract.Presenter, ITimerListener 
 
     @Override
     public void testRestClient() {
-        mModel.testRestClient(mContext, new ISuccess() {
+        MODEL.testRestClient(CONTEXT, new ISuccess() {
             @Override
             public void onSuccess(String response) {
-                mView.showToast(response, false);
+                VIEW.showToast(response, false);
             }
         }, new IFailure() {
             @Override
             public void onFailure() {
-                mView.showToast("failure", false);
+                VIEW.showToast("failure", false);
             }
         }, new IError() {
             @Override
             public void onError(int code, String msg) {
-                mView.showToast("error", false);
+                VIEW.showToast("error", false);
             }
         });
     }
 
     @Override
     public void testRxGet() {
-        mModel.testRxGet(mContext, new Observer<String>() {
+        MODEL.testRxGet(CONTEXT, new Observer<String>() {
             @Override
             public void onSubscribe(Disposable d) {
-                mView.showToast("start", false);
+                VIEW.showToast("start", false);
             }
 
             @Override
             public void onNext(String s) {
-                mView.showToast(s, false);
+                VIEW.showToast(s, false);
             }
 
             @Override
             public void onError(Throwable e) {
-                mView.showToast("error", false);
+                VIEW.showToast("error", false);
             }
 
             @Override
             public void onComplete() {
-                mView.showToast("complete", false);
+                VIEW.showToast("complete", false);
             }
         });
     }
 
     @Override
     public void testRxRestClient() {
-        mModel.testRxRestClient(mContext, new Observer<String>() {
+        MODEL.testRxRestClient(CONTEXT, new Observer<String>() {
             @Override
             public void onSubscribe(Disposable d) {
-                mView.showToast("start", false);
+                VIEW.showToast("start", false);
             }
 
             @Override
             public void onNext(String s) {
-                mView.showToast(s, false);
+                VIEW.showToast(s, false);
             }
 
             @Override
             public void onError(Throwable e) {
-                mView.showToast("error", false);
+                VIEW.showToast("error", false);
             }
 
             @Override
             public void onComplete() {
-                mView.showToast("complete", false);
+                VIEW.showToast("complete", false);
             }
         });
     }
@@ -126,8 +129,8 @@ class CountdownPresenter implements CountdownContract.Presenter, ITimerListener 
         Awesome.getMainHandler().post(new Runnable() {
             @Override
             public void run() {
-                if (!mView.isTvNull()) {
-                    mView.updateCountdown(MessageFormat.format("跳过\n{0}s", mCountDown));
+                if (!VIEW.isTvNull()) {
+                    VIEW.updateCountdown(MessageFormat.format("跳过\n{0}s", mCountDown));
                     mCountDown--;
                     if (mCountDown < 0) {
                         terminateCountDown();
@@ -139,10 +142,38 @@ class CountdownPresenter implements CountdownContract.Presenter, ITimerListener 
 
     //判断是否显示滑动启动页
     private void checkIsShowScroll() {
-        if (mModel.isFirstLauncherApp()) {
-            mView.goScroll();
+        if (MODEL.isFirstLauncherApp()) {
+            VIEW.goScroll();
         } else {
-            mView.goMain();
+            VIEW.goMain();
         }
+    }
+
+    @Override
+    public void onLifeCycleChanged(@NonNull LifecycleOwner owner, @NonNull Lifecycle.Event event) {
+    }
+
+    @Override
+    public void onCreate(@NonNull LifecycleOwner owner) {
+    }
+
+    @Override
+    public void onStart(@NonNull LifecycleOwner owner) {
+    }
+
+    @Override
+    public void onResume(@NonNull LifecycleOwner owner) {
+    }
+
+    @Override
+    public void onPause(@NonNull LifecycleOwner owner) {
+    }
+
+    @Override
+    public void onStop(@NonNull LifecycleOwner owner) {
+    }
+
+    @Override
+    public void onDestroy(@NonNull LifecycleOwner owner) {
     }
 }

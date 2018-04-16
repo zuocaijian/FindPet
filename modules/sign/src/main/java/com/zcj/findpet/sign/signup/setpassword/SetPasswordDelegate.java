@@ -22,7 +22,7 @@ public class SetPasswordDelegate extends AwesomeDelegate implements PasswordCont
 
     @BindView(R2.id.title_bar)
     //@BindView(R.id.title_bar)
-    TitleBar mTitleBar;
+            TitleBar mTitleBar;
 
     private PasswordContract.Presenter mPresenter;
 
@@ -34,6 +34,7 @@ public class SetPasswordDelegate extends AwesomeDelegate implements PasswordCont
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
         mPresenter = new PasswordPresenter(getContext(), this);
+        getLifecycle().addObserver(mPresenter);
         mPresenter.start();
     }
 
@@ -44,12 +45,10 @@ public class SetPasswordDelegate extends AwesomeDelegate implements PasswordCont
 
     @Override
     public void showLoading() {
-
     }
 
     @Override
     public void hideLoading() {
-
     }
 
     @Override

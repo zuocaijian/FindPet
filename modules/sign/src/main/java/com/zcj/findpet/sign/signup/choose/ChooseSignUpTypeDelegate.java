@@ -10,12 +10,11 @@ import com.zcj.findpet.core.app.Awesome;
 import com.zcj.findpet.core.delegate.AwesomeDelegate;
 import com.zcj.findpet.core.views.TitleBar;
 import com.zcj.findpet.sign.R;
+import com.zcj.findpet.sign.R2;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 import me.yokeyword.fragmentation.ISupportFragment;
-
-import com.zcj.findpet.sign.R2;
 
 /**
  * Created by zcj on 2018/4/14 17:02
@@ -25,18 +24,18 @@ public class ChooseSignUpTypeDelegate extends AwesomeDelegate implements ChooseC
 
     @BindView(R2.id.title_bar)
     //@BindView(R.id.title_bar)
-    TitleBar mTitleBar;
+            TitleBar mTitleBar;
 
     private ChooseContract.Presenter mPresenter;
 
     @OnClick(R2.id.fl_has_pet)
-    //@OnClick(R.id.fl_has_pet)
+        //@OnClick(R.id.fl_has_pet)
     void hasPetAction() {
         start((ISupportFragment) ARouter.getInstance().build("/sign/signUpHasPetFragment").navigation());
     }
 
     @OnClick(R2.id.fl_no_pet)
-    //@OnClick(R.id.fl_no_pet)
+        //@OnClick(R.id.fl_no_pet)
     void noPetAction() {
         start((ISupportFragment) ARouter.getInstance().build("/sign/signUpNoPetFragment").navigation());
     }
@@ -49,6 +48,7 @@ public class ChooseSignUpTypeDelegate extends AwesomeDelegate implements ChooseC
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, android.view.View rootView) {
         mPresenter = new ChoosePresenter(getContext(), this);
+        getLifecycle().addObserver(mPresenter);
         mPresenter.start();
     }
 
