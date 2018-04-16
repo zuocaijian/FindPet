@@ -17,8 +17,6 @@ public interface MeContract extends BaseContract<MeContract.Presenter, MeContrac
         void testRx();
 
         void loadImg(ImageView view);
-
-        void release();
     }
 
     interface View extends BaseView<Presenter> {

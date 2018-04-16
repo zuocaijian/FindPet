@@ -104,20 +104,6 @@ public class MePresenter implements MeContract.Presenter {
     }
 
     @Override
-    public void release() {
-        if (mEmitter != null) {
-            mEmitter.onComplete();
-            mEmitter = null;
-        }
-        if (mClickDisposable != null) {
-            if (!mClickDisposable.isDisposed()) {
-                mClickDisposable.dispose();
-            }
-            mClickDisposable = null;
-        }
-    }
-
-    @Override
     public void onLifeCycleChanged(@NonNull LifecycleOwner owner, @NonNull Lifecycle.Event event) {
     }
 
@@ -143,5 +129,15 @@ public class MePresenter implements MeContract.Presenter {
 
     @Override
     public void onDestroy(@NonNull LifecycleOwner owner) {
+        if (mEmitter != null) {
+            mEmitter.onComplete();
+            mEmitter = null;
+        }
+        if (mClickDisposable != null) {
+            if (!mClickDisposable.isDisposed()) {
+                mClickDisposable.dispose();
+            }
+            mClickDisposable = null;
+        }
     }
 }

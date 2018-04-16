@@ -50,12 +50,6 @@ public class MeDelegate extends AwesomeDelegate implements MeContract.View {
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
-        mPresenter.release();
-    }
-
-    @Override
     public void showLoading() {
     }
 
