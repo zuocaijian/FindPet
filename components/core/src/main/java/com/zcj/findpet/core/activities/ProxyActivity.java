@@ -18,10 +18,15 @@ public abstract class ProxyActivity extends SupportActivity {
 
     public abstract AwesomeDelegate setRootDelegate();
 
+    public void setActivityTheme() {
+        setTheme(R.style.AppTheme);
+    }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ARouter.getInstance().inject(this);
+        setActivityTheme();
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         initContainer(savedInstanceState);
     }

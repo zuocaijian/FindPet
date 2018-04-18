@@ -75,6 +75,7 @@ public class SplashScrollDelegate extends AwesomeDelegate implements ScrollContr
     @Override
     public void goMain() {
         ARouter.getInstance().build("/frame/mainActivity").navigation();
+        getProxyActivity().finish();
     }
 
     @Override

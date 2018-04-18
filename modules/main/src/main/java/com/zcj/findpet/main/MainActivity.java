@@ -1,7 +1,5 @@
 package com.zcj.findpet.main;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
@@ -20,14 +18,22 @@ public class MainActivity extends ProxyActivity {
     String mRootDelegate;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void setActivityTheme() {
+        if (TextUtils.isEmpty(mRootDelegate)) {
+            setTheme(R.style.CoreSplashTheme);
+        } else {
+            setTheme(R.style.AppTheme);
+        }
     }
 
     @Override
     public AwesomeDelegate setRootDelegate() {
+        if (TextUtils.isEmpty(mRootDelegate)) {
+            mRootDelegate = "/splash/countdownFragment";
+        }
+
         return (AwesomeDelegate) ARouter.getInstance()
-                .build(TextUtils.isEmpty(mRootDelegate) ? "/splash/countdownFragment" : mRootDelegate)
+                .build(mRootDelegate)
                 .navigation();
     }
 }
